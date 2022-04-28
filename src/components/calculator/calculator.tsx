@@ -16,6 +16,7 @@ const Calculator: React.FC = () => {
 	return(
 		<Canvas>
 			<Box position={[0,0,0]} />
+			<Box position={[1,1,1]} />
 		</Canvas>
 	)
 }
