@@ -3,7 +3,7 @@ import Calculator from "../calculator";
 const App: React.FC = () => {
   return (
     <div>
-      <h1>ULTRA MEGA 3D CALCULATOR</h1>
+      <h1>SUPER ULTRA MEGA CALCULATOR 3D</h1>
       <Calculator />
     </div>
   );

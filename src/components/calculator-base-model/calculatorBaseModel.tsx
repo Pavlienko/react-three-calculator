@@ -13,35 +13,31 @@ type GLTFResult = GLTF & {
   };
 };
 
-export default function Model(props: JSX.IntrinsicElements["group"]) {
+export default function CalculatorBaseModel(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>(null!);
   const { nodes, materials } = useGLTF(
-    "/calculator.glb"
+    "/calculator-base.glb"
   ) as unknown as GLTFResult;
 
-  const ref = useRef<THREE.Mesh>(null!);
+  // const [hovered, hover] = useState(false);
+  // const [clicked, click] = useState(false);
 
-  const [hovered, hover] = useState(false);
-  const [clicked, click] = useState(false);
-
-  useFrame((state, delta) => {
-    group.current.rotation.y += 0.01;
-  });
+  // useFrame((state, delta) => {
+  //   group.current.rotation.y += 0.01;
+  // });
 
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
         <mesh
-          // ref={ref}
-          // {...props}
-          scale={clicked ? 1.5 : 1}
-          onClick={(event) => click(!clicked)}
-          onPointerOver={(event) => {
-            hover(true);
-          }}
-          onPointerOut={(event) => {
-            hover(false);
-          }}
+          // scale={clicked ? 1.5 : 1}
+          // onClick={(event) => click(!clicked)}
+          // onPointerOver={(event) => {
+          //   hover(true);
+          // }}
+          // onPointerOut={(event) => {
+          //   hover(false);
+          // }}
           name="calculator-base"
           castShadow
           receiveShadow
@@ -49,11 +45,12 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
           material={materials.Material}
           userData={{ name: "calculator-base" }}
         >
-          <meshStandardMaterial color={hovered ? "hotpink" : "orange"} />
+          {/* <meshStandardMaterial color={hovered ? "hotpink" : "orange"} /> */}
+          <meshStandardMaterial color={"lightgray"} />
         </mesh>
       </group>
     </group>
   );
 }
 
-useGLTF.preload("/calculator.glb");
+useGLTF.preload("/calculator-base.glb");
