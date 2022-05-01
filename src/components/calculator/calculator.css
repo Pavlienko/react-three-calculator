@@ -1,0 +1,6 @@
+.canvas-calc{
+    z-index: 99;
+    display: block;
+    border: 1px solid red !important;
+    height: 100vh;
+}
