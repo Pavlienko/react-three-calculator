@@ -15,7 +15,7 @@ import CalculatorBaseModel from "../calculator-base-model";
 import CalculatorBoxGeo from "../calculator-box-geo";
 
 export default function Calculator() {
-  const ref = useRef<any>(null!);
+  // const ref = useRef<any>(null!);
   return (
     <div className="canvas-calc">
       <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 0, 8], fov: 90 }}>
@@ -46,7 +46,7 @@ export default function Calculator() {
               fog={false}
             />
             <CalculatorBaseModel />
-            <CalculatorBoxGeo position={[0.5, 1.35, 0.55]} />
+            <CalculatorBoxGeo position={[0.5, 1.35, 0.55]} text="2"/>
             <CalculatorBoxGeo position={[0.5, 1.35, 1.65]} />
             <CalculatorBoxGeo position={[0.5, 1.35, -0.55]} />
             <CalculatorBoxGeo position={[0.5, 1.35, -1.65]} />
