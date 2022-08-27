@@ -14,7 +14,12 @@ import "./calculator.css";
 import CalculatorBaseModel from "../calculator-base-model";
 import CalculatorBoxGeo from "../calculator-box-geo";
 
-export default function Calculator() {
+type Sign = {
+  sign: string,
+  onChange: any
+}
+
+export default function Calculator(props:Sign) {
   // const ref = useRef<any>(null!);
   return (
     <div className="canvas-calc">
@@ -46,25 +51,25 @@ export default function Calculator() {
               fog={false}
             />
             <CalculatorBaseModel />
-            <CalculatorBoxGeo position={[0.5, 1.35, 0.55]} text="2"/>
-            <CalculatorBoxGeo position={[0.5, 1.35, 1.65]} />
-            <CalculatorBoxGeo position={[0.5, 1.35, -0.55]} />
-            <CalculatorBoxGeo position={[0.5, 1.35, -1.65]} />
-            <CalculatorBoxGeo position={[0.5, 0.35, 0.55]} />
-            <CalculatorBoxGeo position={[0.5, 0.35, 1.65]} />
-            <CalculatorBoxGeo position={[0.5, 0.35, -0.55]} />
-            <CalculatorBoxGeo position={[0.5, 0.35, -1.65]} />
-            <CalculatorBoxGeo position={[0.5, -0.65, 0.55]} />
-            <CalculatorBoxGeo position={[0.5, -0.65, 1.65]} />
-            <CalculatorBoxGeo position={[0.5, -0.65, -0.55]} />
-            <CalculatorBoxGeo position={[0.5, -0.65, -1.65]} />
-            <CalculatorBoxGeo position={[0.5, -1.65, 0.55]} />
-            <CalculatorBoxGeo position={[0.5, -1.65, 1.65]} />
-            <CalculatorBoxGeo position={[0.5, -1.65, -0.55]} />
-            <CalculatorBoxGeo position={[0.5, -1.65, -1.65]} />
-            <CalculatorBoxGeo position={[0.5, -2.65, 1.1]} />
-            <CalculatorBoxGeo position={[0.5, -2.65, -0.55]} />
-            <CalculatorBoxGeo position={[0.5, -2.65, -1.65]} />
+            <CalculatorBoxGeo position={[0.5, 1.35, 1.65]} text="AC" sign={props.sign} onChange={props.onChange}/>
+            <CalculatorBoxGeo position={[0.5, 1.35, 0.55]} text="#" sign={props.sign} onChange={props.onChange}/>
+            <CalculatorBoxGeo position={[0.5, 1.35, -0.55]} text="%"/>
+            <CalculatorBoxGeo position={[0.5, 1.35, -1.65]} text="/"/>
+            <CalculatorBoxGeo position={[0.5, 0.35, 1.65]} text="7"/>
+            <CalculatorBoxGeo position={[0.5, 0.35, 0.55]} text="8"/>
+            <CalculatorBoxGeo position={[0.5, 0.35, -0.55]} text="9"/>
+            <CalculatorBoxGeo position={[0.5, 0.35, -1.65]} text="*"/>
+            <CalculatorBoxGeo position={[0.5, -0.65, 1.65]} text="4"/>
+            <CalculatorBoxGeo position={[0.5, -0.65, 0.55]} text="5"/>
+            <CalculatorBoxGeo position={[0.5, -0.65, -0.55]} text="6"/>
+            <CalculatorBoxGeo position={[0.5, -0.65, -1.65]} text="-"/>
+            <CalculatorBoxGeo position={[0.5, -1.65, 1.65]} text="1"/>
+            <CalculatorBoxGeo position={[0.5, -1.65, 0.55]} text="2"/>
+            <CalculatorBoxGeo position={[0.5, -1.65, -0.55]} text="3"/>
+            <CalculatorBoxGeo position={[0.5, -1.65, -1.65]} text="+"/>
+            <CalculatorBoxGeo position={[0.5, -2.65, 1.1]} text="0"/>
+            <CalculatorBoxGeo position={[0.5, -2.65, -0.55]} text="."/>
+            <CalculatorBoxGeo position={[0.5, -2.65, -1.65]} text="="/>
           </PresentationControls>
         </Suspense>
       </Canvas>
