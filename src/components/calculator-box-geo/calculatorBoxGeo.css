@@ -1,0 +1,17 @@
+.calc-symbols-wrapper{
+    pointer-events: none !important;
+}
+
+.calc-symbols-wrapper > *{
+    pointer-events:none !important;
+}
+
+.calc-symbols{
+    user-select: none;
+    pointer-events: none;
+    max-height: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
