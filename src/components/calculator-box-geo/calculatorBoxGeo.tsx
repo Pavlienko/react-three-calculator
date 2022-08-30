@@ -4,6 +4,7 @@ import * as THREE from "three";
 import { useRef, useState } from "react";
 
 import "./calculatorBoxGeo.css";
+import { mapLinear } from "three/src/math/MathUtils";
 
 type Buttons = {
   text?: string;
@@ -39,7 +40,7 @@ export default function CalculatorBoxGeo(props: Buttons) {
       } 
     >
       <boxGeometry args={[0.2, 1, props.text === "0" ? 2.2 : 1.1]} />
-      <meshStandardMaterial color={hovered ? "red" : "blue"} opacity={0.1} />
+      <meshStandardMaterial color={hovered ? "red" : "darkgrey"} opacity={0.1} />
       <Html
         transform={true}
         rotation={[0, Math.PI / 2, 0]}

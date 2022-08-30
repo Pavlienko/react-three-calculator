@@ -1,10 +1,7 @@
-import React, { useRef, Suspense } from "react";
+import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
-  OrbitControls,
   PresentationControls,
-  Stage,
-  ContactShadows,
   Environment,
   Shadow,
 } from "@react-three/drei";
@@ -45,7 +42,7 @@ export default function Calculator(props: Sign) {
             <Shadow
               scale={7}
               position-y={-3.7}
-              color="blue"
+              color="rgb(15,15,15)"
               colorStop={0}
               opacity={0.3}
               fog={false}
