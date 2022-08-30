@@ -7,23 +7,18 @@ const App: React.FC = () => {
   let a: number, b: number;
 
   useEffect(() => {
-    console.log("wow");
-    console.log(Number('123+'));
+    console.log("click!");
     
   }, [sign]);
 
-  function calculate(value:[]){
-    value.map((e:string)=>{
-      console.log(e);
-      
-    })
-  }
+  // const Calculate=()=>{
+  //   setSign(eval(sign));
+  // }
 
   function handleChange(value: string) {
     switch (value) {
       case "+":
         a = Number(sign);
-        console.log(a);
 
         setSign(sign + value);
         break;
@@ -31,7 +26,8 @@ const App: React.FC = () => {
         setSign("CALC");
         break;
       case "=":
-        setSign("");
+        // Calculate();
+        setSign(eval(sign));
         break;
       default:
         switch (sign) {
