@@ -1,0 +1,8 @@
+.calc-history{
+    display: block;
+    width: 400px;
+    height: 800px;
+    border: 1px solid white;
+    border-radius: 2rem;
+    overflow: hidden;
+}

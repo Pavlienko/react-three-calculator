@@ -1,10 +1,6 @@
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import {
-  PresentationControls,
-  Environment,
-  Shadow,
-} from "@react-three/drei";
+import { PresentationControls, Environment, Shadow } from "@react-three/drei";
 
 import "./calculator.css";
 
@@ -48,27 +44,36 @@ export default function Calculator(props: Sign) {
               fog={false}
             />
             <CalculatorBaseModel />
-            <CalculatorBoxGeo text={props.sign} position={[0.5, 2.5, 0]} />
+            <CalculatorBoxGeo
+              text={props.sign}
+              position={[0.5, 2.5, 0]}
+              scale={[0.2, 1.1, 4.3]}
+              color={"lightgreen"}
+            />
             <CalculatorBoxGeo
               position={[0.5, 1.35, 1.65]}
+              color={"#808080"}
               text="AC"
               sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, 1.35, 0.55]}
+              color={"#808080"}
               text="#"
               sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, 1.35, -0.55]}
+              color={"#808080"}
               text="%"
               sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, 1.35, -1.65]}
+              color={"darkorange"}
               text="/"
               sign={props.sign}
               onChange={props.onChange}
@@ -93,6 +98,7 @@ export default function Calculator(props: Sign) {
             />
             <CalculatorBoxGeo
               position={[0.5, 0.35, -1.65]}
+              color={"darkorange"}
               text="*"
               sign={props.sign}
               onChange={props.onChange}
@@ -117,6 +123,7 @@ export default function Calculator(props: Sign) {
             />
             <CalculatorBoxGeo
               position={[0.5, -0.65, -1.65]}
+              color={"darkorange"}
               text="-"
               sign={props.sign}
               onChange={props.onChange}
@@ -141,12 +148,14 @@ export default function Calculator(props: Sign) {
             />
             <CalculatorBoxGeo
               position={[0.5, -1.65, -1.65]}
+              color={"darkorange"}
               text="+"
               sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, -2.65, 1.1]}
+              scale={[0.2, 1, 2.2]}
               text="0"
               sign={props.sign}
               onChange={props.onChange}
@@ -159,6 +168,7 @@ export default function Calculator(props: Sign) {
             />
             <CalculatorBoxGeo
               position={[0.5, -2.65, -1.65]}
+              color={"orangered"}
               text="="
               sign={props.sign}
               onChange={props.onChange}

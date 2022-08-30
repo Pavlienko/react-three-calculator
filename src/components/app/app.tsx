@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import Calculator from "../calculator";
+import History from "../history";
 
 const App: React.FC = () => {
   const [sign, setSign] = useState("CALC");
 
-  let a: number, b: number;
+  // let a: number, b: number;
 
   useEffect(() => {
     console.log("click!");
@@ -18,7 +19,7 @@ const App: React.FC = () => {
   function handleChange(value: string) {
     switch (value) {
       case "+":
-        a = Number(sign);
+        // a = Number(sign);
 
         setSign(sign + value);
         break;
@@ -44,6 +45,7 @@ const App: React.FC = () => {
     <div>
       <h1 style={{ userSelect: "none" }}>{sign}</h1>
       <Calculator sign={sign} onChange={handleChange} />
+      <History />
     </div>
   );
 };
