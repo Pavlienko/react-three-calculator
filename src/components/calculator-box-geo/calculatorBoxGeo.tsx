@@ -6,7 +6,7 @@ import { useRef, useState } from "react";
 import "./calculatorBoxGeo.css";
 
 type Buttons = {
-  scale?: [number,number,number];
+  scale?: [number, number, number];
   color?: string;
   text?: string;
   sign?: string;
@@ -29,7 +29,7 @@ export default function CalculatorBoxGeo(props: Buttons) {
       scale={[clicked ? 1.4 : 1, 1, 1]}
       onClick={(event) => {
         props.onChange(props.text);
-        // click(!clicked);
+        click(!clicked);
       }}
       onPointerOver={(event) => {
         click(true);
@@ -40,10 +40,9 @@ export default function CalculatorBoxGeo(props: Buttons) {
         hover(false);
       }}
     >
-      <boxGeometry args={props.scale? props.scale :[0.2, 1, 1.1]} />
+      <boxGeometry args={props.scale ? props.scale : [0.2, 1, 1.1]} />
       <meshStandardMaterial
         color={hovered ? "red" : props.color ? props.color : "darkgrey"}
-        opacity={0.1}
       />
       <Html
         transform={true}

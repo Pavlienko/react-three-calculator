@@ -12,8 +12,25 @@ type Sign = {
   onChange: any;
 };
 
+type Colors = {
+  shadow: string;
+  defaultButton: string;
+  extendButton: string;
+  operationButton: string;
+  equalButton: string;
+  display: string;
+};
+
 export default function Calculator(props: Sign) {
-  // const ref = useRef<any>(null!);
+  const colors: Colors = {
+    shadow: "#404040",
+    defaultButton: "darkgrey",
+    extendButton: "#888",
+    operationButton: "darkorange",
+    equalButton: "orangered",
+    display: "lightgreen",
+  };
+
   return (
     <div className="canvas-calc">
       <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 0, 8], fov: 90 }}>
@@ -38,7 +55,7 @@ export default function Calculator(props: Sign) {
             <Shadow
               scale={7}
               position-y={-3.7}
-              color="rgb(15,15,15)"
+              color={colors.shadow}
               colorStop={0}
               opacity={0.3}
               fog={false}
@@ -48,129 +65,110 @@ export default function Calculator(props: Sign) {
               text={props.sign}
               position={[0.5, 2.5, 0]}
               scale={[0.2, 1.1, 4.3]}
-              color={"lightgreen"}
+              color={colors.display}
             />
             <CalculatorBoxGeo
               position={[0.5, 1.35, 1.65]}
-              color={"#808080"}
+              color={colors.extendButton}
               text="AC"
-              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, 1.35, 0.55]}
-              color={"#808080"}
+              color={colors.extendButton}
               text="#"
-              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, 1.35, -0.55]}
-              color={"#808080"}
+              color={colors.extendButton}
               text="%"
-              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, 1.35, -1.65]}
-              color={"darkorange"}
+              color={colors.operationButton}
               text="/"
-              // sign={props.sign}
+              onChange={props.onChange}
+            />
+            <CalculatorBoxGeo
+              position={[0.5, 0.35, -1.65]}
+              color={colors.operationButton}
+              text="*"
+              onChange={props.onChange}
+            />
+            <CalculatorBoxGeo
+              position={[0.5, -0.65, -1.65]}
+              color={colors.operationButton}
+              text="-"
+              onChange={props.onChange}
+            />
+            <CalculatorBoxGeo
+              position={[0.5, -1.65, -1.65]}
+              color={colors.operationButton}
+              text="+"
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, 0.35, 1.65]}
               text="7"
-              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, 0.35, 0.55]}
               text="8"
-              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, 0.35, -0.55]}
               text="9"
-              // sign={props.sign}
-              onChange={props.onChange}
-            />
-            <CalculatorBoxGeo
-              position={[0.5, 0.35, -1.65]}
-              color={"darkorange"}
-              text="*"
-              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, -0.65, 1.65]}
               text="4"
-              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, -0.65, 0.55]}
               text="5"
-              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, -0.65, -0.55]}
               text="6"
-              // sign={props.sign}
-              onChange={props.onChange}
-            />
-            <CalculatorBoxGeo
-              position={[0.5, -0.65, -1.65]}
-              color={"darkorange"}
-              text="-"
-              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, -1.65, 1.65]}
               text="1"
-              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, -1.65, 0.55]}
               text="2"
-              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, -1.65, -0.55]}
               text="3"
-              // sign={props.sign}
-              onChange={props.onChange}
-            />
-            <CalculatorBoxGeo
-              position={[0.5, -1.65, -1.65]}
-              color={"darkorange"}
-              text="+"
-              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, -2.65, 1.1]}
               scale={[0.2, 1, 2.2]}
               text="0"
-              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, -2.65, -0.55]}
               text="."
-              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, -2.65, -1.65]}
-              color={"orangered"}
+              color={colors.equalButton}
               text="="
-              // sign={props.sign}
               onChange={props.onChange}
             />
           </PresentationControls>
