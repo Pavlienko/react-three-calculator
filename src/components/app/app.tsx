@@ -3,11 +3,14 @@ import { useState, useEffect } from "react";
 import Calculator from "../calculator";
 import History from "../history";
 
-const App: React.FC = () => {
-  const [sign, setSign] = useState("CALCULATOR");
+import "../app/app.css"
 
-  useEffect(() => {
-  }, [sign]);
+import calcLogo from "../../assets/logo.png"
+
+const App: React.FC = () => {
+  const [sign, setSign] = useState("3D CALCULATOR");
+
+  useEffect(() => {}, [sign]);
 
   const Calculate = () => {
     axios
@@ -29,14 +32,14 @@ const App: React.FC = () => {
         setSign(sign + value);
         break;
       case "AC":
-        setSign("CALCULATOR");
+        setSign("3D CALCULATOR");
         break;
       case "=":
         Calculate();
         break;
       default:
         switch (sign) {
-          case "CALCULATOR":
+          case "3D CALCULATOR":
             setSign(value);
             break;
           default:
@@ -47,7 +50,12 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <h1 style={{ userSelect: "none" }}>{sign}</h1>
+      {/* <h1 style={{ userSelect: "none" }}>
+        SUPER <br /> ULTRA MEGA <br /> CALCULATOR 3D
+      </h1> */}
+      <div className="calc-logo">
+        <img src={calcLogo} alt="calc-logo" />
+      </div>
       <History sign={sign} />
       <Calculator sign={sign} onChange={handleChange} />
     </div>

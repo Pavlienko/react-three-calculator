@@ -1,9 +1,13 @@
 .calc-history{
     display: block;
-    position: relative;
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
     width: 400px;
-    height: 500px;
-    border: 1px solid white;
+    height: 90vh;
+    border: 1px solid rgb(255, 6, 234);
+    color: rgb(255, 126, 244);
+    padding: 20px;
     border-radius: 2rem;
     overflow-y:scroll;
     z-index: 2 ;

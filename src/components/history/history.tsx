@@ -13,7 +13,7 @@ const History: React.FC<HistoryProps> = (props: HistoryProps) => {
     axios.get("http://62.113.105.69:3000/threecalchistory").then((response) => {
       setHistory(
         response.data.map((e: any) => {
-          return e.id + ")" + e.datetime + " | " + e.operation;
+          return  e.datetime + " | " + e.operation;
         })
       );
     });

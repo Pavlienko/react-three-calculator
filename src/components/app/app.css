@@ -1,0 +1,18 @@
+.calc-logo{
+    position: absolute;
+    display: flex;
+    top: 60px;
+    left: 50%;
+    transform: translate(-50%);
+    /* border: 1px solid red; */
+    width: 20vw;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.calc-logo > img{
+    width: 100%;
+    object-fit: contain;
+
+}

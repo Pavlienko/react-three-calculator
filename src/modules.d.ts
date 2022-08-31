@@ -3,3 +3,5 @@ declare namespace JSX {
         textGeometry: any,
     }
 }
+
+declare module "*.png"
