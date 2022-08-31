@@ -1,5 +1,5 @@
 .canvas-calc{
-    z-index: 99;
+    z-index: 1 !important;
     position: absolute;
     top: 0;
     left: 0;

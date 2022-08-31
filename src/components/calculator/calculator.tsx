@@ -54,123 +54,123 @@ export default function Calculator(props: Sign) {
               position={[0.5, 1.35, 1.65]}
               color={"#808080"}
               text="AC"
-              sign={props.sign}
+              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, 1.35, 0.55]}
               color={"#808080"}
               text="#"
-              sign={props.sign}
+              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, 1.35, -0.55]}
               color={"#808080"}
               text="%"
-              sign={props.sign}
+              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, 1.35, -1.65]}
               color={"darkorange"}
               text="/"
-              sign={props.sign}
+              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, 0.35, 1.65]}
               text="7"
-              sign={props.sign}
+              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, 0.35, 0.55]}
               text="8"
-              sign={props.sign}
+              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, 0.35, -0.55]}
               text="9"
-              sign={props.sign}
+              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, 0.35, -1.65]}
               color={"darkorange"}
               text="*"
-              sign={props.sign}
+              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, -0.65, 1.65]}
               text="4"
-              sign={props.sign}
+              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, -0.65, 0.55]}
               text="5"
-              sign={props.sign}
+              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, -0.65, -0.55]}
               text="6"
-              sign={props.sign}
+              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, -0.65, -1.65]}
               color={"darkorange"}
               text="-"
-              sign={props.sign}
+              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, -1.65, 1.65]}
               text="1"
-              sign={props.sign}
+              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, -1.65, 0.55]}
               text="2"
-              sign={props.sign}
+              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, -1.65, -0.55]}
               text="3"
-              sign={props.sign}
+              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, -1.65, -1.65]}
               color={"darkorange"}
               text="+"
-              sign={props.sign}
+              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, -2.65, 1.1]}
               scale={[0.2, 1, 2.2]}
               text="0"
-              sign={props.sign}
+              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, -2.65, -0.55]}
               text="."
-              sign={props.sign}
+              // sign={props.sign}
               onChange={props.onChange}
             />
             <CalculatorBoxGeo
               position={[0.5, -2.65, -1.65]}
               color={"orangered"}
               text="="
-              sign={props.sign}
+              // sign={props.sign}
               onChange={props.onChange}
             />
           </PresentationControls>

@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
 import Calculator from "../calculator";
 import History from "../history";
@@ -8,13 +9,22 @@ const App: React.FC = () => {
   // let a: number, b: number;
 
   useEffect(() => {
-    console.log("click!");
-    
+    // console.log("click!");
   }, [sign]);
 
-  // const Calculate=()=>{
-  //   setSign(eval(sign));
-  // }
+  // console.log(new Date().toLocaleString());
+
+  const Calculate = () => {
+    axios.post("http://62.113.105.69:3000/threecalchistory",{
+      datetime: new Date().toLocaleString(),
+      operation: sign + " = " + (eval(sign)),
+    }).then((Response)=>{
+      setSign(eval(sign));
+    }).catch((error)=>{
+      console.log(error);
+      
+    });    
+  };
 
   function handleChange(value: string) {
     switch (value) {
@@ -27,8 +37,8 @@ const App: React.FC = () => {
         setSign("CALC");
         break;
       case "=":
-        // Calculate();
-        setSign(eval(sign));
+        Calculate();
+        
         break;
       default:
         switch (sign) {
@@ -44,8 +54,8 @@ const App: React.FC = () => {
   return (
     <div>
       <h1 style={{ userSelect: "none" }}>{sign}</h1>
+      <History sign={sign}/>
       <Calculator sign={sign} onChange={handleChange} />
-      <History />
     </div>
   );
 };
