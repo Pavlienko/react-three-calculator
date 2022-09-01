@@ -16,10 +16,10 @@ const App: React.FC = () => {
     axios
       .post("http://62.113.105.69:3000/threecalchistory", {
         datetime: new Date().toLocaleString(),
-        operation: sign + " = " + eval(sign),
+        operation: sign + " = " + (eval(sign).toFixed(3)),
       })
       .then((Response) => {
-        setSign(eval(sign));
+        setSign(eval(sign).toFixed(3));
       })
       .catch((error) => {
         console.log(error);

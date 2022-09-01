@@ -1,4 +1,6 @@
 import {createRoot} from "react-dom/client";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 
 import './index.css';
 import App from './components/app';
@@ -6,5 +8,7 @@ import App from './components/app';
 const main = document.getElementById('root')!;
 
 createRoot(main).render(
-	<App />
+	<Provider store={store}>
+		<App />
+	</Provider>
 )

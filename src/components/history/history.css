@@ -2,6 +2,7 @@
     display: block;
     position: absolute;
     top: 50%;
+    left: 30px;
     transform: translate(0,-50%);
     width: 400px;
     height: 90vh;
@@ -9,6 +10,9 @@
     color: rgb(255, 126, 244);
     padding: 20px;
     border-radius: 2rem;
+    font-family: "ＭＳ Ｐゴシック";
+    /* font-size: 1.05em; */
+    font-weight: 600;
     overflow-y:scroll;
     z-index: 2 ;
 }
