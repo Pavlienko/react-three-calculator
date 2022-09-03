@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
+import signReducer from "../features/signSlice";
 
 export const store = configureStore({
     reducer:{
-
+        signs: signReducer,
     }
 })
 

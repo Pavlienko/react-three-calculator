@@ -2,23 +2,32 @@ import { MeshProps } from "@react-three/fiber";
 import { Html } from "@react-three/drei";
 import * as THREE from "three";
 import { useRef, useState } from "react";
+import { useDispatch } from "react-redux";
 
 import "./calculatorBoxGeo.css";
+import { addSign } from "../../features/signSlice";
 
 type Buttons = {
   scale?: [number, number, number];
   color?: string;
-  text?: string;
+  text: string;
   sign?: string;
   onChange?: any;
 } & MeshProps;
 
-export default function CalculatorBoxGeo(props: Buttons) {
+const CalculatorBoxGeo:React.FC<Buttons> = (props: Buttons) => {
   // This reference will give us direct access to the THREE.Mesh object
   const ref = useRef<THREE.Mesh>(null!);
   // Hold state for hovered and clicked events
   const [hovered, hover] = useState(false);
   const [clicked, click] = useState(false);
+
+
+  const dispatch = useDispatch();
+
+  const handleAddNumber = (value:string)=>{
+    dispatch(addSign(value));
+  }
 
   return (
     <mesh
@@ -28,7 +37,8 @@ export default function CalculatorBoxGeo(props: Buttons) {
       receiveShadow
       scale={[clicked ? 1.4 : 1, 1, 1]}
       onClick={(event) => {
-        props.onChange(props.text);
+        // props.onChange(props.text);
+        handleAddNumber(props.text);
         click(!clicked);
       }}
       onPointerOver={(event) => {
@@ -57,3 +67,5 @@ export default function CalculatorBoxGeo(props: Buttons) {
     </mesh>
   );
 }
+
+export default CalculatorBoxGeo;

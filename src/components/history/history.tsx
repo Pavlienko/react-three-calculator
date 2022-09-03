@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import "./history.css";
 
 type HistoryProps = {
-  sign: string;
+  signs: string;
 };
 
 const History: React.FC<HistoryProps> = (props: HistoryProps) => {
@@ -23,7 +23,7 @@ const History: React.FC<HistoryProps> = (props: HistoryProps) => {
         })
       );
     });
-  }, [props.sign]);
+  }, [props.signs]);
 
   return (
     <div className="calc-history">
