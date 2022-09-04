@@ -33,6 +33,101 @@ const Calculator: React.FC = () => {
     display: "lightgreen",
   };
 
+  const buttons = [
+    {
+      text: signs,
+      position: [0.5, 2.5, 0],
+      scale: [0.2, 1.1, 4.3],
+      color: colors.display,
+    },
+    {
+      text: "AC",
+      position: [0.5, 1.35, 1.65],
+      color: colors.extendButton,
+    },
+    {
+      text: "#",
+      position: [0.5, 1.35, 0.55],
+      color: colors.extendButton,
+    },
+    {
+      text: "%",
+      position: [0.5, 1.35, -0.55],
+      color: colors.extendButton,
+    },
+    {
+      text: "/",
+      position: [0.5, 1.35, -1.65],
+      color: colors.operationButton,
+    },
+    {
+      text: "*",
+      position: [0.5, 0.35, -1.65],
+      color: colors.operationButton,
+    },
+    {
+      text: "-",
+      position: [0.5, -0.65, -1.65],
+      color: colors.operationButton,
+    },
+    {
+      text: "+",
+      position: [0.5, -1.65, -1.65],
+      color: colors.operationButton,
+    },
+    {
+      text: "0",
+      position: [0.5, -2.65, 1.1],
+      scale: [0.2, 1, 2.2],
+    },
+    {
+      text: "1",
+      position: [0.5, -1.65, 1.65],
+    },
+    {
+      text: "2",
+      position: [0.5, -1.65, 0.55],
+    },
+    {
+      text: "3",
+      position: [0.5, -1.65, -0.55],
+    },
+    {
+      text: "4",
+      position: [0.5, -0.65, 1.65],
+    },
+    {
+      text: "5",
+      position: [0.5, -0.65, 0.55],
+    },
+    {
+      text: "6",
+      position: [0.5, -0.65, -0.55],
+    },
+    {
+      text: "7",
+      position: [0.5, 0.35, 1.65],
+    },
+    {
+      text: "8",
+      position: [0.5, 0.35, 0.55],
+    },
+    {
+      text: "9",
+      position: [0.5, 0.35, -0.55],
+    },
+    {
+      text: ".",
+      position: [0.5, -2.65, -0.55],
+    },
+    {
+      sign: signs,
+      text: "=",
+      position: [0.5, -2.65, -1.65],
+      color: colors.equalButton,
+    },
+  ];
+
   return (
     <div className="canvas-calc">
       <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 0, 8], fov: 90 }}>
@@ -64,68 +159,19 @@ const Calculator: React.FC = () => {
                 fog={false}
               />
               <CalculatorBaseModel />
-              <CalculatorBoxGeo
-                text={signs}
-                position={[0.5, 2.5, 0]}
-                scale={[0.2, 1.1, 4.3]}
-                color={colors.display}
-              />
-              <CalculatorBoxGeo
-                position={[0.5, 1.35, 1.65]}
-                color={colors.extendButton}
-                text="AC"
-              />
-              <CalculatorBoxGeo
-                position={[0.5, 1.35, 0.55]}
-                color={colors.extendButton}
-                text="#"
-              />
-              <CalculatorBoxGeo
-                position={[0.5, 1.35, -0.55]}
-                color={colors.extendButton}
-                text="%"
-              />
-              <CalculatorBoxGeo
-                position={[0.5, 1.35, -1.65]}
-                color={colors.operationButton}
-                text="/"
-              />
-              <CalculatorBoxGeo
-                position={[0.5, 0.35, -1.65]}
-                color={colors.operationButton}
-                text="*"
-              />
-              <CalculatorBoxGeo
-                position={[0.5, -0.65, -1.65]}
-                color={colors.operationButton}
-                text="-"
-              />
-              <CalculatorBoxGeo
-                position={[0.5, -1.65, -1.65]}
-                color={colors.operationButton}
-                text="+"
-              />
-              <CalculatorBoxGeo position={[0.5, -1.65, 1.65]} text="1" />
-              <CalculatorBoxGeo position={[0.5, -1.65, 0.55]} text="2" />
-              <CalculatorBoxGeo position={[0.5, -1.65, -0.55]} text="3" />
-              <CalculatorBoxGeo position={[0.5, -0.65, 1.65]} text="4" />
-              <CalculatorBoxGeo position={[0.5, -0.65, 0.55]} text="5" />
-              <CalculatorBoxGeo position={[0.5, -0.65, -0.55]} text="6" />
-              <CalculatorBoxGeo position={[0.5, 0.35, 1.65]} text="7" />
-              <CalculatorBoxGeo position={[0.5, 0.35, 0.55]} text="8" />
-              <CalculatorBoxGeo position={[0.5, 0.35, -0.55]} text="9" />
-              <CalculatorBoxGeo
-                position={[0.5, -2.65, 1.1]}
-                scale={[0.2, 1, 2.2]}
-                text="0"
-              />
-              <CalculatorBoxGeo position={[0.5, -2.65, -0.55]} text="." />
-              <CalculatorBoxGeo
-                sign={signs}
-                position={[0.5, -2.65, -1.65]}
-                color={colors.equalButton}
-                text="="
-              />
+              {buttons.map((e, i) => {
+                return (
+                  <CalculatorBoxGeo
+                    sign={e.sign ? e.sign : undefined}
+                    text={e.text}
+                    position={[e.position[0], e.position[1], e.position[2]]}
+                    scale={
+                      e.scale ? [e.scale[0], e.scale[1], e.scale[2]] : undefined
+                    }
+                    color={e.color ? e.color : undefined}
+                  />
+                );
+              })}
             </PresentationControls>
           </Suspense>
         </ContextBridge>
