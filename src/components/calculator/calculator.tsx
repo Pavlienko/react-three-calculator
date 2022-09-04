@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { PresentationControls, Environment, Shadow } from "@react-three/drei";
 import { useContextBridge } from "@react-three/drei";
-import { ReactReduxContext,useSelector } from "react-redux";
+import { ReactReduxContext, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 
 import "./calculator.css";
@@ -22,7 +22,7 @@ type Colors = {
 const Calculator: React.FC = () => {
   const ContextBridge = useContextBridge(ReactReduxContext);
 
-  const signs = useSelector((state: RootState)=> state.signs.value)
+  const signs = useSelector((state: RootState) => state.signs.value);
 
   const colors: Colors = {
     shadow: "#404040",
@@ -121,6 +121,7 @@ const Calculator: React.FC = () => {
               />
               <CalculatorBoxGeo position={[0.5, -2.65, -0.55]} text="." />
               <CalculatorBoxGeo
+                sign={signs}
                 position={[0.5, -2.65, -1.65]}
                 color={colors.equalButton}
                 text="="

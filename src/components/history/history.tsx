@@ -1,34 +1,34 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
 import "./history.css";
+const API_URL = "http://62.113.105.69:3000/threecalchistory";
 
-type HistoryProps = {
-  signs: string;
-};
-
-const History: React.FC<HistoryProps> = (props: HistoryProps) => {
+const History: React.FC = () => {
+  const signs = useSelector((state: RootState) => state.signs.value);
   const [history, setHistory] = useState([]);
 
   useEffect(() => {
-    axios.get("http://62.113.105.69:3000/threecalchistory").then((response) => {
+    axios.get(API_URL).then((response) => {
       setHistory(
         response.data.map((e: any) => {
-          return  (
+          return (
             <section>
               <span>{e.datetime}</span>
-              <span style={{color:"#aa707050"}}> | </span>
-              <span style={{color:"pink"}}>{e.operation}</span>
+              <span style={{ color: "#aa707050" }}> | </span>
+              <span style={{ color: "pink" }}>{e.operation}</span>
             </section>
-          )
+          );
         })
       );
     });
-  }, [props.signs]);
+  }, [signs]);
 
   return (
     <div className="calc-history">
-      <div style={{marginTop:"30px"}}>Operations history:</div>
-      <div style={{width:"fit-content",margin:"30px auto"}}>
+      <div style={{ marginTop: "30px" }}>Operations history:</div>
+      <div style={{ width: "fit-content", margin: "30px auto" }}>
         {history.map((e: string) => {
           return <div style={{ textAlign: "left" }}>{e}</div>;
         })}

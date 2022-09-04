@@ -5,7 +5,8 @@ import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import "./calculatorBoxGeo.css";
-import { addSign } from "../../features/signSlice";
+import { addSign, clearSign, addToHistory } from "../../features/signSlice";
+import { AppDispatch } from "../../store/store";
 
 type Buttons = {
   scale?: [number, number, number];
@@ -15,19 +16,27 @@ type Buttons = {
   onChange?: any;
 } & MeshProps;
 
-const CalculatorBoxGeo:React.FC<Buttons> = (props: Buttons) => {
+const CalculatorBoxGeo: React.FC<Buttons> = (props: Buttons) => {
   // This reference will give us direct access to the THREE.Mesh object
   const ref = useRef<THREE.Mesh>(null!);
   // Hold state for hovered and clicked events
   const [hovered, hover] = useState(false);
   const [clicked, click] = useState(false);
 
+  const dispatch = useDispatch<AppDispatch>();
 
-  const dispatch = useDispatch();
-
-  const handleAddNumber = (value:string)=>{
-    dispatch(addSign(value));
-  }
+  const calculate = (value: string) => {
+    switch (value) {
+      case "AC":
+        dispatch(clearSign());
+        break;
+      case "=":
+        props.sign ? dispatch(addToHistory(props.sign)) : console.log("wow");
+        break;
+      default:
+        dispatch(addSign(value));
+    }
+  };
 
   return (
     <mesh
@@ -37,8 +46,7 @@ const CalculatorBoxGeo:React.FC<Buttons> = (props: Buttons) => {
       receiveShadow
       scale={[clicked ? 1.4 : 1, 1, 1]}
       onClick={(event) => {
-        // props.onChange(props.text);
-        handleAddNumber(props.text);
+        calculate(props.text);
         click(!clicked);
       }}
       onPointerOver={(event) => {
@@ -66,6 +74,6 @@ const CalculatorBoxGeo:React.FC<Buttons> = (props: Buttons) => {
       </Html>
     </mesh>
   );
-}
+};
 
 export default CalculatorBoxGeo;
