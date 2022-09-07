@@ -141,15 +141,24 @@ const Calculator: React.FC = () => {
               polar={[-Math.PI / 3, Math.PI / 3]}
               azimuth={[-Math.PI / 1.4, Math.PI / 2]}
             >
-              <ambientLight intensity={0.5} />
+              {/* <ambientLight intensity={0.5} /> */}
               <spotLight
+              color={"#fda"}
                 position={[10, 10, 10]}
                 angle={0.25}
                 penumbra={1}
                 shadow-mapSize={[512, 512]}
                 castShadow
               />
-              <Environment preset="forest" />
+              <spotLight
+              color={"#fda"}
+                position={[10, 10, 10]}
+                angle={0.25}
+                penumbra={1}
+                shadow-mapSize={[512, 512]}
+                castShadow
+              />
+              <Environment preset="city" />
               <Shadow
                 scale={7}
                 position-y={-3.7}
@@ -159,9 +168,10 @@ const Calculator: React.FC = () => {
                 fog={false}
               />
               <CalculatorBaseModel />
-              {buttons.map((e, i) => {
+              {/* {buttons.map((e, i) => {
                 return (
                   <CalculatorBoxGeo
+                    key={i}
                     sign={e.sign ? e.sign : undefined}
                     text={e.text}
                     position={[e.position[0], e.position[1], e.position[2]]}
@@ -171,7 +181,7 @@ const Calculator: React.FC = () => {
                     color={e.color ? e.color : undefined}
                   />
                 );
-              })}
+              })} */}
             </PresentationControls>
           </Suspense>
         </ContextBridge>

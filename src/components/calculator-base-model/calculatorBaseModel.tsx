@@ -6,16 +6,30 @@ import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 type GLTFResult = GLTF & {
   nodes: {
     ["calculator-base"]: THREE.Mesh;
+    ["calculator-base_1"]: THREE.Mesh;
+    ["calculator-base_2"]: THREE.Mesh;
+    ["calculator-base_3"]: THREE.Mesh;
+    ["calculator-base_4"]: THREE.Mesh;
+    ["calculator-base_5"]: THREE.Mesh;
+    ["calculator-base_6"]: THREE.Mesh;
   };
   materials: {
-    Material: THREE.MeshStandardMaterial;
+    baseMaterial: THREE.MeshStandardMaterial;
+    buttonsMaterial: THREE.MeshStandardMaterial;
+    buttonsBaseMaterial: THREE.MeshStandardMaterial;
+    displayMaterial: THREE.MeshStandardMaterial;
+    signMaterial: THREE.MeshStandardMaterial;
+    dropMaterial: THREE.MeshStandardMaterial;
+    dropButtonMaterial: THREE.MeshStandardMaterial;
   };
 };
 
-export default function CalculatorBaseModel(props: JSX.IntrinsicElements["group"]) {
+export default function CalculatorBaseModel(
+  props: JSX.IntrinsicElements["group"]
+) {
   const group = useRef<THREE.Group>(null!);
   const { nodes, materials } = useGLTF(
-    "/calculator-base.glb"
+    "/calc-test.gltf"
   ) as unknown as GLTFResult;
 
   return (
@@ -26,14 +40,38 @@ export default function CalculatorBaseModel(props: JSX.IntrinsicElements["group"
           castShadow
           receiveShadow
           geometry={nodes["calculator-base"].geometry}
-          material={materials.Material}
+          material={materials.baseMaterial}
           userData={{ name: "calculator-base" }}
         >
-          <meshStandardMaterial color={"lightgrey"} />
+          <meshStandardMaterial color={"#C9B27F"} />
         </mesh>
+        <mesh
+          geometry={nodes["calculator-base_1"].geometry}
+          material={materials.buttonsMaterial}
+        />
+        <mesh
+          geometry={nodes["calculator-base_2"].geometry}
+          material={materials.buttonsBaseMaterial}
+        />
+        <mesh
+          geometry={nodes["calculator-base_3"].geometry}
+          material={materials.displayMaterial}
+        />
+        <mesh
+          geometry={nodes["calculator-base_4"].geometry}
+          material={materials.signMaterial}
+        />
+        <mesh
+          geometry={nodes["calculator-base_5"].geometry}
+          material={materials.dropMaterial}
+        />
+        <mesh
+          geometry={nodes["calculator-base_6"].geometry}
+          material={materials.dropButtonMaterial}
+        />
       </group>
     </group>
   );
 }
 
-useGLTF.preload("/calculator-base.glb");
+useGLTF.preload("/calc-test.gltf");
