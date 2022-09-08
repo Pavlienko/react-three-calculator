@@ -54,5 +54,4 @@ export default function CalculatorBaseModel(
     </group>
   );
 }
-
 useGLTF.preload("/calc-base.gltf");

@@ -2,6 +2,8 @@ import * as THREE from "three";
 import { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
+import {MeshProps} from "@react-three/fiber";
+
 type GLTFResult = GLTF & {
   nodes: {
     ["calc-button"]: THREE.Mesh;
@@ -9,9 +11,14 @@ type GLTFResult = GLTF & {
   materials: {
     buttonsMaterial: THREE.MeshStandardMaterial;
   };
-};
+} & MeshProps;
 
-export default function CalcButton(props: JSX.IntrinsicElements["group"]) {
+type ButtonProps = {
+  color?: string
+} 
+
+// export default function CalcButton(props: JSX.IntrinsicElements["group"]) {
+export default function CalcButton(props: ButtonProps) {
   const group = useRef<THREE.Group>(null!);
   const { nodes, materials } = useGLTF(
     "/calc-button.gltf"
@@ -22,7 +29,9 @@ export default function CalcButton(props: JSX.IntrinsicElements["group"]) {
         <mesh
           geometry={nodes["calc-button"].geometry}
           material={materials.buttonsMaterial}
-        />
+        >
+          <meshStandardMaterial color={props.color? props.color : "#808080"}/>
+        </mesh>
       </group>
     </group>
   );

@@ -33,7 +33,7 @@ export const signSlice = createSlice({
       state.value += action.payload;
     },
     clearSign: (state) => {
-      state.value = "";
+      state.value = initialState.value;
     },
   },
   extraReducers: (builder) => {

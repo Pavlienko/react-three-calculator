@@ -1,12 +1,14 @@
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { PresentationControls, Environment, Shadow } from "@react-three/drei";
+import { PresentationControls, Environment, Shadow, Box } from "@react-three/drei";
 import { useContextBridge } from "@react-three/drei";
 import { ReactReduxContext, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 
 import "./calculator.css";
 
+import * as THREE from "three";
+import { useRef} from "react";
 import CalculatorBaseModel from "../calculator-base-model";
 import CalculatorBoxGeo from "../calculator-box-geo";
 
@@ -20,6 +22,7 @@ type Colors = {
 };
 
 const Calculator: React.FC = () => {
+  const ref = useRef<THREE.Group>(null!);
   const ContextBridge = useContextBridge(ReactReduxContext);
 
   const signs = useSelector((state: RootState) => state.signs.value);
@@ -27,8 +30,8 @@ const Calculator: React.FC = () => {
   const colors: Colors = {
     shadow: "#404040",
     defaultButton: "darkgrey",
-    extendButton: "#888",
-    operationButton: "darkorange",
+    extendButton: "red",
+    operationButton: "#333",
     equalButton: "orangered",
     display: "lightgreen",
   };
@@ -36,38 +39,47 @@ const Calculator: React.FC = () => {
   const buttons = [
     {
       text: signs,
-      position: [1, 2.5, 0],
-      scale: [0.2, 1.1, 4.3],
+      position: [1.05, 1.2, 0],
       color: colors.display,
     },
     {
       text: "AC",
-      position: [1, 1.35, 1.65],
+      position: [0.95, -0.15, -0.715],
       color: colors.extendButton,
     },
     {
-      text: "#",
-      position: [1, 1.35, 0.55],
+      text: "C",
+      position: [0.95, -0.15, -1.43],
       color: colors.extendButton,
     },
     {
       text: "%",
-      position: [1, 1.35, -0.55],
-      color: colors.extendButton,
+      position: [0.98, -0.75, -1.43],
+      color: colors.operationButton,
     },
     {
       text: "/",
-      position: [1, 1.35, -1.65],
+      position: [0.98, -0.75, -0.715],
       color: colors.operationButton,
     },
     {
       text: "*",
-      position: [1, 0.35, -1.65],
+      position: [1.01, -1.35, -0.715],
+      color: colors.operationButton,
+    },
+    {
+      text: "MRC",
+      position: [1.01, -1.35, -1.43],
       color: colors.operationButton,
     },
     {
       text: "-",
-      position: [1.04, -1.95, -0.715],
+      position: [1.043, -1.95, -0.715],
+      color: colors.operationButton,
+    },
+    {
+      text: "M+",
+      position: [1.043, -1.95, -1.43],
       color: colors.operationButton,
     },
     {
@@ -78,19 +90,18 @@ const Calculator: React.FC = () => {
     {
       text: "0",
       position: [1.07, -2.55, 1.43],
-      scale: [0.2, 1, 2.2],
     },
     {
       text: "1",
-      position: [1.04, -1.95, 1.43],
+      position: [1.043, -1.95, 1.43],
     },
     {
       text: "2",
-      position: [1.04, -1.95, 0.715],
+      position: [1.043, -1.95, 0.715],
     },
     {
       text: "3",
-      position: [1.04, -1.95, 0],
+      position: [1.043, -1.95, 0],
     },
     {
       text: "4",
@@ -106,15 +117,15 @@ const Calculator: React.FC = () => {
     },
     {
       text: "7",
-      position: [0.5, 0.35, 1.65],
+      position: [0.98, -0.75, 1.43],
     },
     {
       text: "8",
-      position: [0.5, 0.35, 0.55],
+      position: [0.98, -0.75, 0.715],
     },
     {
       text: "9",
-      position: [0.5, 0.35, -0.55],
+      position: [0.98, -0.75, -0],
     },
     {
       text: ".",
@@ -147,7 +158,7 @@ const Calculator: React.FC = () => {
             >
               {/* <ambientLight intensity={0.5} /> */}
               <spotLight
-              color={"#fda"}
+                color={"#fda"}
                 position={[10, 10, 10]}
                 angle={0.25}
                 penumbra={1}
@@ -155,7 +166,7 @@ const Calculator: React.FC = () => {
                 castShadow
               />
               <spotLight
-              color={"#fda"}
+                color={"#fda"}
                 position={[10, 10, 10]}
                 angle={0.25}
                 penumbra={1}
@@ -171,7 +182,7 @@ const Calculator: React.FC = () => {
                 opacity={0.3}
                 fog={false}
               />
-              <CalculatorBaseModel />
+              <CalculatorBaseModel ref={ref} />
               {buttons.map((e, i) => {
                 return (
                   <CalculatorBoxGeo
@@ -179,10 +190,11 @@ const Calculator: React.FC = () => {
                     sign={e.sign ? e.sign : undefined}
                     text={e.text}
                     position={[e.position[0], e.position[1], e.position[2]]}
-                    scale={
-                      e.scale ? [e.scale[0], e.scale[1], e.scale[2]] : undefined
-                    }
+                    // scale={
+                    //   e.scale ? [e.scale[0], e.scale[1], e.scale[2]] : undefined
+                    // }
                     color={e.color ? e.color : undefined}
+                    ref={ref}
                   />
                 );
               })}
