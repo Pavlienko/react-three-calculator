@@ -5,3 +5,4 @@ declare namespace JSX {
 }
 
 declare module "*.png"
+declare module "*.mp3"

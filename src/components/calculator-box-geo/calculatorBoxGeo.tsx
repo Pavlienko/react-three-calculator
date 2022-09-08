@@ -73,14 +73,25 @@ const CalculatorBoxGeo: React.FC<Buttons> = (props: Buttons) => {
           />
         )}
 
-        <group rotation-z={[Math.PI / 30]}>
+        <group
+          rotation-z={
+            props.color === "lightgreen" ? [-Math.PI / 45] : [Math.PI / 30]
+          }
+        >
           <Html
             center
             transform={true}
             rotation-y={[Math.PI / 2]}
             position={[0.01, 0, 0]}
             occlude={props.ref ? [props.ref] : [ref2]}
-            className="calc-symbols"
+            // className="calc-symbols"
+            className={
+              props.color
+                ? props.color === "lightgreen"
+                  ? "calc-display"
+                  : "calc-symbols"
+                : "calc-symbols-black"
+            }
             wrapperClass="calc-symbols-wrapper"
           >
             {props.text}

@@ -1,3 +1,8 @@
+@font-face {
+  font-family: digital-7;
+  src: url(./assets/digital-font/digital-7.ttf);
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }

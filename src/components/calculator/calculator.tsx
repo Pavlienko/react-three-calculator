@@ -37,11 +37,11 @@ const Calculator: React.FC = () => {
   };
 
   const buttons = [
-    {
-      text: signs,
-      position: [1.05, 1.2, 0],
-      color: colors.display,
-    },
+    // {
+    //   text: signs,
+    //   position: [1.05, 1.2, 0],
+    //   color: colors.display,
+    // },
     {
       text: "AC",
       position: [0.95, -0.15, -0.715],
@@ -183,6 +183,12 @@ const Calculator: React.FC = () => {
                 fog={false}
               />
               <CalculatorBaseModel ref={ref} />
+              <CalculatorBoxGeo 
+              key={'display'}
+              text={signs}
+              position={[1.05, 1.2, 0]}
+              color={colors.display}
+              />
               {buttons.map((e, i) => {
                 return (
                   <CalculatorBoxGeo
