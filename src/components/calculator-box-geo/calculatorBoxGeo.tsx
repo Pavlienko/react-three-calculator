@@ -8,6 +8,8 @@ import "./calculatorBoxGeo.css";
 import { addSign, clearSign, addToHistory } from "../../features/signSlice";
 import { AppDispatch } from "../../store/store";
 
+import CalcButton from "../calc-button"
+
 type Buttons = {
   scale?: [number, number, number];
   color?: string;
@@ -44,7 +46,7 @@ const CalculatorBoxGeo: React.FC<Buttons> = (props: Buttons) => {
       ref={ref}
       castShadow
       receiveShadow
-      scale={[clicked ? 1.4 : 1, 1, 1]}
+      scale={[clicked ? 2.4 : 1, 1, 1]}
       onClick={(event) => {
         calculate(props.text);
         click(!clicked);
@@ -58,14 +60,15 @@ const CalculatorBoxGeo: React.FC<Buttons> = (props: Buttons) => {
         hover(false);
       }}
     >
-      <boxGeometry args={props.scale ? props.scale : [0.2, 1, 1.1]} />
-      <meshStandardMaterial
+      {/* <boxGeometry args={props.scale ? props.scale : [0.2, 1, 1.1]} /> */}
+      <CalcButton />
+      {/* <meshStandardMaterial
         color={hovered ? "red" : props.color ? props.color : "darkgrey"}
-      />
+      /> */}
       <Html
         transform={true}
         rotation={[0, Math.PI / 2, 0]}
-        position={[0.11, 0.35, -0.01]}
+        position={[0.01, 0.225, 0]}
         occlude={[ref]}
         className="calc-symbols"
         wrapperClass="calc-symbols-wrapper"

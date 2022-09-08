@@ -36,73 +36,73 @@ const Calculator: React.FC = () => {
   const buttons = [
     {
       text: signs,
-      position: [0.5, 2.5, 0],
+      position: [1, 2.5, 0],
       scale: [0.2, 1.1, 4.3],
       color: colors.display,
     },
     {
       text: "AC",
-      position: [0.5, 1.35, 1.65],
+      position: [1, 1.35, 1.65],
       color: colors.extendButton,
     },
     {
       text: "#",
-      position: [0.5, 1.35, 0.55],
+      position: [1, 1.35, 0.55],
       color: colors.extendButton,
     },
     {
       text: "%",
-      position: [0.5, 1.35, -0.55],
+      position: [1, 1.35, -0.55],
       color: colors.extendButton,
     },
     {
       text: "/",
-      position: [0.5, 1.35, -1.65],
+      position: [1, 1.35, -1.65],
       color: colors.operationButton,
     },
     {
       text: "*",
-      position: [0.5, 0.35, -1.65],
+      position: [1, 0.35, -1.65],
       color: colors.operationButton,
     },
     {
       text: "-",
-      position: [0.5, -0.65, -1.65],
+      position: [1.04, -1.95, -0.715],
       color: colors.operationButton,
     },
     {
       text: "+",
-      position: [0.5, -1.65, -1.65],
+      position: [1.07, -2.55, -0.715],
       color: colors.operationButton,
     },
     {
       text: "0",
-      position: [0.5, -2.65, 1.1],
+      position: [1.07, -2.55, 1.43],
       scale: [0.2, 1, 2.2],
     },
     {
       text: "1",
-      position: [0.5, -1.65, 1.65],
+      position: [1.04, -1.95, 1.43],
     },
     {
       text: "2",
-      position: [0.5, -1.65, 0.55],
+      position: [1.04, -1.95, 0.715],
     },
     {
       text: "3",
-      position: [0.5, -1.65, -0.55],
+      position: [1.04, -1.95, 0],
     },
     {
       text: "4",
-      position: [0.5, -0.65, 1.65],
+      position: [1.01, -1.35, 1.43],
     },
     {
       text: "5",
-      position: [0.5, -0.65, 0.55],
+      position: [1.01, -1.35, 0.715],
     },
     {
       text: "6",
-      position: [0.5, -0.65, -0.55],
+      position: [1.01, -1.35, 0],
     },
     {
       text: "7",
@@ -118,12 +118,16 @@ const Calculator: React.FC = () => {
     },
     {
       text: ".",
-      position: [0.5, -2.65, -0.55],
+      position: [1.07, -2.55, 0.715],
+    },
+    {
+      text: ".",
+      position: [1.07, -2.55, 0],
     },
     {
       sign: signs,
       text: "=",
-      position: [0.5, -2.65, -1.65],
+      position: [1.07, -2.55, -1.43],
       color: colors.equalButton,
     },
   ];
@@ -168,7 +172,7 @@ const Calculator: React.FC = () => {
                 fog={false}
               />
               <CalculatorBaseModel />
-              {/* {buttons.map((e, i) => {
+              {buttons.map((e, i) => {
                 return (
                   <CalculatorBoxGeo
                     key={i}
@@ -181,7 +185,7 @@ const Calculator: React.FC = () => {
                     color={e.color ? e.color : undefined}
                   />
                 );
-              })} */}
+              })}
             </PresentationControls>
           </Suspense>
         </ContextBridge>

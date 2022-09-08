@@ -29,7 +29,7 @@ export default function CalculatorBaseModel(
 ) {
   const group = useRef<THREE.Group>(null!);
   const { nodes, materials } = useGLTF(
-    "/calc-test.gltf"
+    "/calc-base.gltf"
   ) as unknown as GLTFResult;
 
   return (
@@ -45,33 +45,14 @@ export default function CalculatorBaseModel(
         >
           <meshStandardMaterial color={"#C9B27F"} />
         </mesh>
-        <mesh
-          geometry={nodes["calculator-base_1"].geometry}
-          material={materials.buttonsMaterial}
-        />
-        <mesh
-          geometry={nodes["calculator-base_2"].geometry}
-          material={materials.buttonsBaseMaterial}
-        />
-        <mesh
-          geometry={nodes["calculator-base_3"].geometry}
-          material={materials.displayMaterial}
-        />
-        <mesh
-          geometry={nodes["calculator-base_4"].geometry}
-          material={materials.signMaterial}
-        />
-        <mesh
-          geometry={nodes["calculator-base_5"].geometry}
-          material={materials.dropMaterial}
-        />
-        <mesh
-          geometry={nodes["calculator-base_6"].geometry}
-          material={materials.dropButtonMaterial}
-        />
+      <mesh geometry={nodes['calculator-base_1'].geometry} material={materials.buttonsBaseMaterial} />
+      <mesh geometry={nodes['calculator-base_2'].geometry} material={materials.displayMaterial} />
+      <mesh geometry={nodes['calculator-base_3'].geometry} material={materials.signMaterial} />
+      <mesh geometry={nodes['calculator-base_4'].geometry} material={materials.dropMaterial} />
+      <mesh geometry={nodes['calculator-base_5'].geometry} material={materials.dropButtonMaterial} />
       </group>
     </group>
   );
 }
 
-useGLTF.preload("/calc-test.gltf");
+useGLTF.preload("/calc-base.gltf");
