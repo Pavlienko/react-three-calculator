@@ -1,10 +1,11 @@
 import Calculator from "../calculator";
 import History from "../history";
+import Music from "../music";
 
 import "../app/app.css";
 
 import calcLogo from "../../assets/logo.png";
-import music from "../../assets/music.mp3"
+
 
 const App: React.FC = () => {
 
@@ -13,7 +14,7 @@ const App: React.FC = () => {
       <div className="calc-logo">
         <img src={calcLogo} alt="calc-logo" />
       </div>
-      <audio autoPlay loop src={music}></audio>
+      <Music />
       <History />
       <Calculator />
     </div>

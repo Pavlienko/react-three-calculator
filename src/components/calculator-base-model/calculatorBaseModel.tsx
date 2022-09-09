@@ -11,11 +11,9 @@ type GLTFResult = GLTF & {
     ["calculator-base_3"]: THREE.Mesh;
     ["calculator-base_4"]: THREE.Mesh;
     ["calculator-base_5"]: THREE.Mesh;
-    ["calculator-base_6"]: THREE.Mesh;
   };
   materials: {
     baseMaterial: THREE.MeshStandardMaterial;
-    buttonsMaterial: THREE.MeshStandardMaterial;
     buttonsBaseMaterial: THREE.MeshStandardMaterial;
     displayMaterial: THREE.MeshStandardMaterial;
     signMaterial: THREE.MeshStandardMaterial;

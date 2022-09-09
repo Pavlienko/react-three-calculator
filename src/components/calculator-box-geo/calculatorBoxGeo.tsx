@@ -11,11 +11,9 @@ import { AppDispatch } from "../../store/store";
 import CalcButton from "../calc-button";
 
 type Buttons = {
-  scale?: [number, number, number];
-  color?: string;
-  text: string;
   sign?: string;
-  ref?: any;
+  text: string;
+  color?: string;
 } & GroupProps;
 
 const CalculatorBoxGeo: React.FC<Buttons> = (props: Buttons) => {
@@ -54,15 +52,15 @@ const CalculatorBoxGeo: React.FC<Buttons> = (props: Buttons) => {
         castShadow
         receiveShadow
         scale={[clicked ? 2.4 : 1, 1, 1]}
-        onClick={(event) => {
+        onClick={() => {
           calculate(props.text);
           click(!clicked);
         }}
-        onPointerOver={(event) => {
+        onPointerOver={() => {
           click(true);
           hover(true);
         }}
-        onPointerOut={(event) => {
+        onPointerOut={() => {
           click(false);
           hover(false);
         }}
@@ -83,8 +81,7 @@ const CalculatorBoxGeo: React.FC<Buttons> = (props: Buttons) => {
             transform={true}
             rotation-y={[Math.PI / 2]}
             position={[0.01, 0, 0]}
-            occlude={props.ref ? [props.ref] : [ref2]}
-            // className="calc-symbols"
+            occlude={[ref2]}
             className={
               props.color
                 ? props.color === "lightgreen"

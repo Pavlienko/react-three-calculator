@@ -1,14 +1,14 @@
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { PresentationControls, Environment, Shadow, Box } from "@react-three/drei";
+import { PresentationControls, Environment, Shadow} from "@react-three/drei";
 import { useContextBridge } from "@react-three/drei";
 import { ReactReduxContext, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 
 import "./calculator.css";
 
-import * as THREE from "three";
-import { useRef} from "react";
+// import * as THREE from "three";
+// import { useRef} from "react";
 import CalculatorBaseModel from "../calculator-base-model";
 import CalculatorBoxGeo from "../calculator-box-geo";
 
@@ -22,7 +22,7 @@ type Colors = {
 };
 
 const Calculator: React.FC = () => {
-  const ref = useRef<THREE.Group>(null!);
+  // const ref = useRef<THREE.Group>(null!);
   const ContextBridge = useContextBridge(ReactReduxContext);
 
   const signs = useSelector((state: RootState) => state.signs.value);
@@ -37,11 +37,6 @@ const Calculator: React.FC = () => {
   };
 
   const buttons = [
-    // {
-    //   text: signs,
-    //   position: [1.05, 1.2, 0],
-    //   color: colors.display,
-    // },
     {
       text: "AC",
       position: [0.95, -0.15, -0.715],
@@ -182,7 +177,7 @@ const Calculator: React.FC = () => {
                 opacity={0.3}
                 fog={false}
               />
-              <CalculatorBaseModel ref={ref} />
+              <CalculatorBaseModel />
               <CalculatorBoxGeo 
               key={'display'}
               text={signs}
@@ -196,11 +191,7 @@ const Calculator: React.FC = () => {
                     sign={e.sign ? e.sign : undefined}
                     text={e.text}
                     position={[e.position[0], e.position[1], e.position[2]]}
-                    // scale={
-                    //   e.scale ? [e.scale[0], e.scale[1], e.scale[2]] : undefined
-                    // }
                     color={e.color ? e.color : undefined}
-                    ref={ref}
                   />
                 );
               })}

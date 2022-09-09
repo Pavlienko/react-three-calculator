@@ -17,7 +17,6 @@ type ButtonProps = {
   color?: string
 } 
 
-// export default function CalcButton(props: JSX.IntrinsicElements["group"]) {
 export default function CalcButton(props: ButtonProps) {
   const group = useRef<THREE.Group>(null!);
   const { nodes, materials } = useGLTF(
@@ -36,4 +35,4 @@ export default function CalcButton(props: ButtonProps) {
     </group>
   );
 }
-useGLTF.preload("/calc-test.gltf");
+useGLTF.preload("/calc-button.gltf");

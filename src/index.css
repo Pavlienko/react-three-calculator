@@ -1,6 +1,16 @@
-@font-face {
+/* @font-face {
   font-family: digital-7;
   src: url(./assets/digital-font/digital-7.ttf);
+} */
+
+@font-face {
+  font-family: "Digital-7";
+  src: url("./assets/digital-font/58045dabdc3a361cb9bb9faf2f1dd1f3.eot");
+  src: url("./assets/digital-font/58045dabdc3a361cb9bb9faf2f1dd1f3.eot?#iefix") format("embedded-opentype"),
+    url("./assets/digital-font/58045dabdc3a361cb9bb9faf2f1dd1f3.woff2") format("woff2"),
+    url("./assets/digital-font/58045dabdc3a361cb9bb9faf2f1dd1f3.woff") format("woff"),
+    url("./assets/digital-font/58045dabdc3a361cb9bb9faf2f1dd1f3.ttf") format("truetype"),
+    url("./assets/digital-font/58045dabdc3a361cb9bb9faf2f1dd1f3.svg#Digital-7") format("svg");
 }
 
 ::-webkit-scrollbar {
@@ -23,15 +33,14 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
   height: 100vh;
   /* background: radial-gradient(rgb(41, 41, 41),black); */
-  background: radial-gradient(rgb(62, 0, 54),black);
+  background: radial-gradient(rgb(62, 0, 54), black);
   background-size: cover;
   color: white;
   text-align: center;
@@ -39,6 +48,5 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
