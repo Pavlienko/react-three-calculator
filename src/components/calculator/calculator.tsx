@@ -25,7 +25,7 @@ const Calculator: React.FC = () => {
   // const ref = useRef<THREE.Group>(null!);
   const ContextBridge = useContextBridge(ReactReduxContext);
 
-  const signs = useSelector((state: RootState) => state.signs.value);
+  const signs = useSelector((state: RootState) => state.signs);
 
   const colors: Colors = {
     shadow: "#404040",
@@ -43,7 +43,7 @@ const Calculator: React.FC = () => {
       color: colors.extendButton,
     },
     {
-      text: "C",
+      text: '^_^',
       position: [0.95, -0.15, -1.43],
       color: colors.extendButton,
     },
@@ -180,7 +180,7 @@ const Calculator: React.FC = () => {
               <CalculatorBaseModel />
               <CalculatorBoxGeo 
               key={'display'}
-              text={signs}
+              text={signs.resultSign}
               position={[1.05, 1.2, 0]}
               color={colors.display}
               />

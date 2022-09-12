@@ -5,13 +5,20 @@ import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import "./calculatorBoxGeo.css";
-import { addSign, clearSign, addToHistory } from "../../features/signSlice";
+import {
+  addSign,
+  updateOperation,
+  clearSign,
+  addToHistory,
+  SignType,
+} from "../../features/signSlice";
+
 import { AppDispatch } from "../../store/store";
 
 import CalcButton from "../calc-button";
 
 type Buttons = {
-  sign?: string;
+  sign?: SignType;
   text: string;
   color?: string;
 } & GroupProps;
@@ -26,10 +33,16 @@ const CalculatorBoxGeo: React.FC<Buttons> = (props: Buttons) => {
 
   const dispatch = useDispatch<AppDispatch>();
 
-  const calculate = (value: string) => {
+  const Calculate = (value: string) => {
     switch (value) {
       case "AC":
         dispatch(clearSign());
+        break;
+      case "-":
+      case "+":
+      case "*":
+      case "/":
+        dispatch(updateOperation(value));
         break;
       case "=":
         props.sign ? dispatch(addToHistory(props.sign)) : console.log("wow");
@@ -53,7 +66,7 @@ const CalculatorBoxGeo: React.FC<Buttons> = (props: Buttons) => {
         receiveShadow
         scale={[clicked ? 2.4 : 1, 1, 1]}
         onClick={() => {
-          calculate(props.text);
+          Calculate(props.text);
           click(!clicked);
         }}
         onPointerOver={() => {
@@ -91,7 +104,9 @@ const CalculatorBoxGeo: React.FC<Buttons> = (props: Buttons) => {
             }
             wrapperClass="calc-symbols-wrapper"
           >
-            {props.text}
+            {
+            props.text
+            }
           </Html>
         </group>
       </mesh>

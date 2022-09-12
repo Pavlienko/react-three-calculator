@@ -6,7 +6,7 @@ import "./history.css";
 const API_URL = "http://62.113.105.69:3000/threecalchistory";
 
 const History: React.FC = () => {
-  const signs = useSelector((state: RootState) => state.signs.value);
+  const signs = useSelector((state: RootState) => state.signs.resultSign);
   const [history, setHistory] = useState([]);
 
   useEffect(() => {
