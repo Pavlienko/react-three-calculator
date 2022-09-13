@@ -9,6 +9,8 @@ import {
   addSign,
   updateOperation,
   clearSign,
+  checkDots,
+  changeOperator,
   addToHistory,
   SignType,
 } from "../../features/signSlice";
@@ -44,6 +46,12 @@ const CalculatorBoxGeo: React.FC<Buttons> = (props: Buttons) => {
       case "/":
         dispatch(updateOperation(value));
         break;
+      case ".":
+        dispatch(checkDots(value));
+        break;
+        case '+/-':
+          dispatch(changeOperator())
+          break;
       case "=":
         props.sign ? dispatch(addToHistory(props.sign)) : console.log("wow");
         break;
@@ -104,9 +112,7 @@ const CalculatorBoxGeo: React.FC<Buttons> = (props: Buttons) => {
             }
             wrapperClass="calc-symbols-wrapper"
           >
-            {
-            props.text
-            }
+            {props.text}
           </Html>
         </group>
       </mesh>

@@ -127,7 +127,7 @@ const Calculator: React.FC = () => {
       position: [1.07, -2.55, 0.715],
     },
     {
-      text: ".",
+      text: "+/-",
       position: [1.07, -2.55, 0],
     },
     {
@@ -145,7 +145,7 @@ const Calculator: React.FC = () => {
           <Suspense fallback={null}>
             <PresentationControls
               global
-              config={{ mass: 2, tension: 500 }}
+              config={{ mass: 5, tension: 500 }}
               snap={true}
               rotation={[0, -Math.PI / 2, 0]}
               polar={[-Math.PI / 3, Math.PI / 3]}

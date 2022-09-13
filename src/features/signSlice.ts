@@ -87,26 +87,43 @@ export const signSlice = createSlice({
   reducers: {
     addSign: (state, action: PayloadAction<string>) => {
       if (state.resultSign === initialState.resultSign) state.resultSign = "";
-      if(state.operation){
-        state.b += action.payload
+      if (state.operation) {
+        state.b += action.payload;
         state.resultSign += action.payload;
-      }else{
-        if(state.result){
+      } else {
+        if (state.result) {
           state.result = undefined;
           state.a = action.payload;
           state.resultSign = action.payload;
-        }else{
+        } else {
           state.a += action.payload;
           state.resultSign += action.payload;
         }
       }
     },
     updateOperation: (state, action: PayloadAction<string>) => {
-      if (state.a && state.b) {
-        alert("please count before");
+      if (state.a) {
+        if (state.a && state.b) {
+          alert("please count first");
+        } else {
+          state.operation = action.payload;
+          state.resultSign = state.a + state.operation;
+        }
       } else {
-        state.operation = action.payload;
-        state.resultSign = String(state.a + state.operation);
+        alert("enter digits first");
+      }
+    },
+    checkDots: (state, action: PayloadAction<string>) => {
+      if (state.a !== "" && state.b !== "") {
+      }
+    },
+    changeOperator: (state) => {
+      if (state.operation) {
+        state.b = String(-Number(state.b));
+        state.resultSign = state.a + state.operation + state.b;
+      } else {
+        state.a = String(-Number(state.a));
+        state.resultSign = state.a + state.operation + state.b;
       }
     },
     clearSign: (state) => {
@@ -142,7 +159,13 @@ export const signSlice = createSlice({
   },
 });
 
-export const { addSign, updateOperation, clearSign } = signSlice.actions;
+export const {
+  addSign,
+  updateOperation,
+  checkDots,
+  changeOperator,
+  clearSign,
+} = signSlice.actions;
 
 export type { SignType };
 
