@@ -5,12 +5,12 @@ import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 
 type GLTFResult = GLTF & {
   nodes: {
-    ["calculator-base"]: THREE.Mesh;
-    ["calculator-base_1"]: THREE.Mesh;
-    ["calculator-base_2"]: THREE.Mesh;
-    ["calculator-base_3"]: THREE.Mesh;
-    ["calculator-base_4"]: THREE.Mesh;
-    ["calculator-base_5"]: THREE.Mesh;
+    ['calculator-base001']: THREE.Mesh
+    ['calculator-base002']: THREE.Mesh
+    ['calculator-base003']: THREE.Mesh
+    ['calculator-base004']: THREE.Mesh
+    ['calculator-base005']: THREE.Mesh
+    ['calculator-base006']: THREE.Mesh
   };
   materials: {
     baseMaterial: THREE.MeshStandardMaterial;
@@ -23,11 +23,11 @@ type GLTFResult = GLTF & {
 };
 
 export default function CalculatorBaseModel(
-  props: JSX.IntrinsicElements["group"]
+  props: JSX.IntrinsicElements['group']
 ) {
   const group = useRef<THREE.Group>(null!);
   const { nodes, materials } = useGLTF(
-    "/calc-base.gltf"
+    "/calc-base-1.gltf"
   ) as unknown as GLTFResult;
 
   return (
@@ -37,19 +37,20 @@ export default function CalculatorBaseModel(
           name="calculator-base"
           castShadow
           receiveShadow
-          geometry={nodes["calculator-base"].geometry}
+          geometry={nodes["calculator-base001"].geometry}
           material={materials.baseMaterial}
           userData={{ name: "calculator-base" }}
-        >
-          <meshStandardMaterial color={"#C9B27F"} />
-        </mesh>
-      <mesh geometry={nodes['calculator-base_1'].geometry} material={materials.buttonsBaseMaterial} />
-      <mesh geometry={nodes['calculator-base_2'].geometry} material={materials.displayMaterial} />
-      <mesh geometry={nodes['calculator-base_3'].geometry} material={materials.signMaterial} />
-      <mesh geometry={nodes['calculator-base_4'].geometry} material={materials.dropMaterial} />
-      <mesh geometry={nodes['calculator-base_5'].geometry} material={materials.dropButtonMaterial} />
+          rotation={[Math.PI / 2, 0, 0]}
+        />
+          {/* <meshStandardMaterial color={"#C9B27F"} />
+        </mesh> */}
+      <mesh geometry={nodes['calculator-base002'].geometry} material={materials.buttonsBaseMaterial} rotation={[Math.PI / 2, 0, 0]}/>
+      <mesh geometry={nodes['calculator-base003'].geometry} material={materials.displayMaterial} rotation={[Math.PI / 2, 0, 0]}/>
+      <mesh geometry={nodes['calculator-base004'].geometry} material={materials.signMaterial} rotation={[Math.PI / 2, 0, 0]}/>
+      <mesh geometry={nodes['calculator-base005'].geometry} material={materials.dropMaterial} rotation={[Math.PI / 2, 0, 0]}/>
+      <mesh geometry={nodes['calculator-base006'].geometry} material={materials.dropButtonMaterial} rotation={[Math.PI / 2, 0, 0]}/>
       </group>
     </group>
   );
 }
-useGLTF.preload("/calc-base.gltf");
+useGLTF.preload("/calc-base-1.gltf");
