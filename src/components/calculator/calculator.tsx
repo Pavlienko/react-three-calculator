@@ -10,8 +10,9 @@ import { ReactReduxContext } from "react-redux";
 
 import "./calculator.css";
 
-import {colors} from "../../store/parameters";
+import { colors } from "../../store/parameters";
 import Scene from "../scene";
+import Background from "../background";
 
 const Calculator: React.FC = () => {
   const ContextBridge = useContextBridge(ReactReduxContext);
@@ -29,9 +30,10 @@ const Calculator: React.FC = () => {
               polar={[-Math.PI / 3, Math.PI / 3]}
               azimuth={[-Math.PI / 1.4, Math.PI / 2]}
             >
-              {/* <ambientLight intensity={0.5} /> */}
+              <ambientLight intensity={0.5} color={"#9af"} />
               <spotLight
                 color={"#fda"}
+                // color={"#f0a"}
                 position={[10, 10, 10]}
                 angle={0.25}
                 penumbra={1}
@@ -40,6 +42,7 @@ const Calculator: React.FC = () => {
               />
               <spotLight
                 color={"#fda"}
+                // color={"#0fd"}
                 position={[10, 10, 10]}
                 angle={0.25}
                 penumbra={1}
@@ -59,6 +62,7 @@ const Calculator: React.FC = () => {
             </PresentationControls>
           </Suspense>
         </ContextBridge>
+        <Background />
       </Canvas>
     </div>
   );
