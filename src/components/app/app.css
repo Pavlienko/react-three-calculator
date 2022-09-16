@@ -9,10 +9,10 @@
     height: auto;
     align-items: center;
     justify-content: center;
+    z-index: 9999;
 }
 
 .calc-logo > img{
     width: 100%;
     object-fit: contain;
-
 }
