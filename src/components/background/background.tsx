@@ -57,17 +57,44 @@ mat2 rotate3d(float angle){
 void main( void )
 {
 	
-    vec2 p = (gl_FragCoord.xy * 2.0 - resolution) / min(resolution.x, resolution.y);
-    p = rotate3d((time * 2.0) * PI) * vec2(length(p*0.9),(p.x*p.y * p.x));
-    float ti = 0.1 / abs(abs(sin(time + p.x)) - length(p));
-    gl_FragColor = vec4(vec3(ti) * vec3(p.x,p.y,0.4), 0.01);
+    //vec2 p = (gl_FragCoord.xy * 1.0 - resolution) / min(resolution.x, resolution.y);
+    //p = rotate3d((time * 1.0) * PI) * vec2(length(p*p.y),(p.x,p.x));
+    // p = rotate3d((time * 2.0) * PI) * vec2(length(p*0.9),(p.x*p.y * p.x));
+    //float ti = 0.2 / abs(abs(sin(time + p.x)) - length(p));
+    // float ti = 0.1 / abs(abs(sin(time / p.x)) - (p.x ));
+    //gl_FragColor = vec4(vec3(ti) * vec3(p.x,p.y,0.4), 0.01);
+    //gl_FragColor = vec4(vec3(0.0),0.0);
+
+    //vec2 uPos = ( gl_FragCoord.xy / resolution.xy );	
+    //uPos.y -= 0.50;
+    //uPos.y /= sin( (uPos.x - uPos.y*20. + time) * 100.0 ) * 4.3;
+    //float dy = 0.5/ ( 30. * abs(uPos.y));
+    //gl_FragColor = vec4( (uPos.x + 1.0) * dy, 0.4 * dy, dy+=0.0, 1. );
+
+    vec2 r=resolution;
+	  vec2 u=gl_FragCoord.xy/r.y;
+	  vec2 v=u-r.xy/r.y/1.;
+	  v=vec2(v.x*abs(1./v.y),abs(1./v.y))+vec2(0.,time);
+	  float g=2.*max(abs((vec2(.5)-mod(v,vec2(1.))).x),abs((vec2(.5)-mod(v,vec2(1.))).y));
+	  vec3 c1 = vec3(mix(-1.3,.9,u.y*2.),0.,.9) + vec3(0.6);
+	  float v1 = max(pow(g,sin(time*1.)*1.+5.),smoothstep(0.95,.96,g)*2.)*(abs(u.y-.9)-.02)/1.9;
+	  c1 *= v1;	//*2.0;
+ 	  gl_FragColor=vec4(c1.xyz,1.0);
+
+    float speed = time * .01;
+    float cycle = clamp(time, 99.0,999.0);
+    vec2 uPos = ( gl_FragCoord.xy / resolution.xy );	
+    uPos.y -= 1.0;
+    uPos.y += (tan( uPos.x * cycle + speed ) - tan( uPos.x * 10000. + speed )) * .02;
+    float dy = 0.01/ ( 50. * abs(uPos.y));
+    gl_FragColor += vec4( (uPos.x + 0.0) * dy, 0.1 * dy, dy+=0.0, 1.0 );
 
 }
     `;
 
   return (
     <>
-      <mesh ref={refMesh} position-z={[-3]} scale={[2.5, 2.5, 2.5]}>
+      <mesh ref={refMesh} position={[0,0,-3]} scale={[2.5, 2.5, 2.5]} >
         <planeBufferGeometry attach="geometry" args={[16, 9]} />
         <shaderMaterial
           ref={refMat}

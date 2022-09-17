@@ -1,0 +1,23 @@
+.infos-wrapper{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    font-family: "Digital-7";
+    font-size: 2rem;
+    z-index: 990000;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    user-select: none;
+}
+
+.infos-mouse{
+    width: 10vw;
+    display: block;
+    position: absolute;
+    right: 5vw;
+    top: 10vh;
+    text-align: left;
+    color: rgb(255, 0, 242);
+}

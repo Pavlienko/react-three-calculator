@@ -13,6 +13,7 @@ import "./calculator.css";
 import { colors } from "../../store/parameters";
 import Scene from "../scene";
 import Background from "../background";
+import Infographics from "../infographics"
 
 const Calculator: React.FC = () => {
   const ContextBridge = useContextBridge(ReactReduxContext);
@@ -64,6 +65,7 @@ const Calculator: React.FC = () => {
         </ContextBridge>
         <Background />
       </Canvas>
+      <Infographics />
     </div>
   );
 };

@@ -6,7 +6,7 @@
     transform: translate(0,-50%);
     width: 400px;
     height: 90vh;
-    background-color: #0001;
+    /* background-color: #1; */
     border: 3px solid #c9b27f;
     color: rgb(255, 126, 244);
     color: #c9b27f;
@@ -19,5 +19,5 @@
     font-weight: 600;
     overflow-y:scroll;
     z-index: 2 ;
-    backdrop-filter: blur(100px);
+    /* backdrop-filter: blur(1px); */
 }
