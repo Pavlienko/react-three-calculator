@@ -15,17 +15,22 @@ const Background: React.FC = (props: JSX.IntrinsicElements["mesh"]) => {
       },
       resolution: {
         type: "v2",
-        value: new THREE.Vector2(window.innerWidth * window.devicePixelRatio, window.innerHeight* window.devicePixelRatio),
+        value: new THREE.Vector2(
+          window.innerWidth * window.devicePixelRatio,
+          window.innerHeight * window.devicePixelRatio
+        ),
       },
     }),
     []
   );
-  
-  
 
   useFrame((state) => {
     const { clock } = state;
     refMat.current.uniforms.time.value = clock.getElapsedTime();
+    refMat.current.uniforms.resolution.value = new THREE.Vector2(
+      window.innerWidth * window.devicePixelRatio,
+      window.innerHeight * window.devicePixelRatio
+    );
   });
 
   const vertexShader = `
@@ -97,7 +102,7 @@ void main( void )
 
   return (
     <>
-      <mesh ref={refMesh} position={[0,0,-3]} scale={[2.5, 2.5, 2.5]} >
+      <mesh ref={refMesh} position={[0, 0, -3]} scale={[2.5, 2.5, 2.5]}>
         <planeBufferGeometry attach="geometry" args={[16, 9]} />
         <shaderMaterial
           ref={refMat}

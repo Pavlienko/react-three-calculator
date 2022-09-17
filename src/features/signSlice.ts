@@ -135,8 +135,8 @@ export const signSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(addToHistory.pending, () => {
-      return;
+    builder.addCase(addToHistory.pending, (state) => {
+      state.resultSign = 'CALCULATING...';
     });
 
     builder.addCase(addToHistory.fulfilled, (state) => {
