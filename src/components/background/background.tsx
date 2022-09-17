@@ -72,23 +72,24 @@ void main( void )
     //gl_FragColor = vec4( (uPos.x + 1.0) * dy, 0.4 * dy, dy+=0.0, 1. );
 
     vec2 r=resolution;
-	  vec2 u=gl_FragCoord.xy/r.y;
-	  vec2 v=u-r.xy/r.y/1.;
-	  v=vec2(v.x*abs(1./v.y),abs(1./v.y))+vec2(0.,time);
-	  float g=2.*max(abs((vec2(.5)-mod(v,vec2(1.))).x),abs((vec2(.5)-mod(v,vec2(1.))).y));
+	  vec2 u=(gl_FragCoord.xy/r ) * 2. -1.;
+	  vec2 v= u  ;
+	
+	  v = vec2(v.x * abs(1./v.y), abs(1./v.y)) + vec2(0.,time);
+	  float g=2.*max(abs((vec2(.5)-(mod(v,vec2(1.)))).x),abs((vec2(.5)-mod(v,vec2(1.))).y));
 	  vec3 c1 = vec3(mix(-1.3,.9,u.y*2.),0.,.9) + vec3(0.6);
-	  float v1 = max(pow(g,sin(time*1.)*1.+5.),smoothstep(0.95,.96,g)*2.)*(abs(u.y-.9)-.02)/1.9;
-	  c1 *= v1;	//*2.0;
- 	  gl_FragColor=vec4(c1.xyz,1.0);
+	  float v1 = max(pow(g,sin(time*1.)*1.+5.0),smoothstep(0.96,.99,g)*2.)*(abs(u.y-.9)-0.01)/1.9;
+	  c1 *= v1*5.;
+	  float z = ( (abs(abs(u.y)-1.) * abs(u.y)) * 3. );
+	  gl_FragColor = mix(vec4( c1.xyz, 1.0 ),vec4(0.0),abs(z -1.));
 
     float speed = time * .01;
     float cycle = clamp(time, 99.0,999.0);
-    vec2 uPos = ( gl_FragCoord.xy / resolution.xy );	
-    uPos.y -= 1.0;
+    vec2 uPos = u;	
+    //uPos.y -= 0.5;
     uPos.y += (tan( uPos.x * cycle + speed ) - tan( uPos.x * 10000. + speed )) * .02;
     float dy = 0.01/ ( 50. * abs(uPos.y));
     gl_FragColor += vec4( (uPos.x + 0.0) * dy, 0.1 * dy, dy+=0.0, 1.0 );
-
 }
     `;
 
