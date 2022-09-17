@@ -33,8 +33,9 @@ const Calculator: React.FC = () => {
             >
               <ambientLight intensity={0.5} color={"#9af"} />
               <spotLight
-                color={"#fda"}
-                // color={"#f0a"}
+                // color={"#fda"}
+                color={"#90f"}
+                intensity={2}
                 position={[10, 10, 10]}
                 angle={0.25}
                 penumbra={1}
