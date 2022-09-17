@@ -15,11 +15,13 @@ const Background: React.FC = (props: JSX.IntrinsicElements["mesh"]) => {
       },
       resolution: {
         type: "v2",
-        value: new THREE.Vector2(window.innerWidth, window.innerHeight),
+        value: new THREE.Vector2(window.innerWidth * window.devicePixelRatio, window.innerHeight* window.devicePixelRatio),
       },
     }),
     []
   );
+  
+  
 
   useFrame((state) => {
     const { clock } = state;
