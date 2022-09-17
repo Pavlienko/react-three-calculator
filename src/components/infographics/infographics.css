@@ -1,23 +1,30 @@
 .infos-wrapper{
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    font-family: "Digital-7";
-    font-size: 1rem;
-    z-index: 990000;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    user-select: none;
+
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 30px;
+        transform: translate(0,-50%);
+        width: 400px;
+        height: 90vh;
+        /* background-color: #1; */
+        border: 3px solid #c9b27f;
+        color: rgb(255, 126, 244);
+        color: #c9b27f;
+        /* color: #ff74e8; */
+        padding: 20px;
+        border-radius: 2rem;
+        font-family: "Digital-7";
+        /* font-family: "ＭＳ Ｐゴシック"; */
+        /* font-size: 1.05em; */
+        font-weight: 600;
+        overflow-y:scroll;
+        z-index: 2 ;
+        /* backdrop-filter: blur(1px); */
 }
 
-.infos-mouse{
-    width: 10vw;
+.infos-block{
+    width: 400px;
     display: block;
-    position: absolute;
-    right: 5vw;
-    top: 10vh;
     text-align: left;
-    color: rgb(255, 0, 242);
 }

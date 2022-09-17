@@ -82,13 +82,13 @@ void main( void )
 	  vec2 u=(gl_FragCoord.xy/r ) * 2. -1.;
 	  vec2 v= u  ;
 
-    float speed = time * .01;
-    float cycle = clamp(time, 99.0,999.0);
-    vec2 uPos = u;	
+    //float speed = time * .01;
+    //float cycle = clamp(time, 99.0,999.0);
+    //vec2 uPos = u;	
     //uPos.y -= 0.5;
-    uPos.y += (tan( uPos.x * cycle + speed ) - tan( uPos.x * 100. + speed )) * .02;
-    float dy = 0.9/ ( 50. * abs(uPos.y));
-    vec4 stars = vec4( (uPos.x + 0.0) * dy, 0.1 * dy, dy+=0.0, 1.0 );
+    //uPos.y += (tan( uPos.x * cycle + speed ) - tan( uPos.x * 100. + speed )) * .02;
+    //float dy = 0.9/ ( 50. * abs(uPos.y));
+    //vec4 stars = vec4( (uPos.x + 0.0) * dy, 0.1 * dy, dy+=0.0, 1.0 );
 	
 	  v = vec2(v.x * abs(1./v.y), abs(1./v.y)) + vec2(0.,time);
 	  float g=2.*max(abs((vec2(.5)-(mod(v,vec2(1.)))).x),abs((vec2(.5)-mod(v,vec2(1.))).y));
