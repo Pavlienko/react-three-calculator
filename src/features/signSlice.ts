@@ -10,6 +10,16 @@ type SignType = {
   resultSign: string;
 };
 
+const DotsCheck = (value: string) => {
+  const stringArr = value.split("");
+  const result = stringArr.filter((e) => e === ".");
+  if (result.length > 0) {
+    return false;
+  } else {
+    return true;
+  }
+};
+
 const IntCheck = (value: number) => {
   if (value % 1 === 0) {
     return value;
@@ -43,7 +53,11 @@ const Calculate = (a?: string, b?: string, operation?: string) => {
       break;
     case "/":
       if (a && b) {
-        return IntCheck(Number(a) / Number(b));
+        if (Number(b) !== 0) {
+          return IntCheck(Number(a) / Number(b));
+        } else {
+          alert("no no no");
+        }
       } else {
         console.log("not enough inputs");
       }
@@ -103,7 +117,7 @@ export const signSlice = createSlice({
     },
     updateOperation: (state, action: PayloadAction<string>) => {
       if (state.a) {
-        if (state.a && state.b) {
+        if (state.b) {
           alert("please count first");
         } else {
           state.operation = action.payload;
@@ -114,16 +128,47 @@ export const signSlice = createSlice({
       }
     },
     checkDots: (state, action: PayloadAction<string>) => {
-      if (state.a !== "" && state.b !== "") {
+      if (state.operation) {
+        if (state.b && DotsCheck(state.b)) {
+          state.b += action.payload;
+          state.resultSign += action.payload;
+        } else {
+          if (state.b === "") {
+            state.b += action.payload;
+            state.resultSign += action.payload;
+          } else {
+            alert("u can`t use more than one points 1");
+          }
+        }
+      } else {
+        if (state.a && DotsCheck(state.a)) {
+          state.a += action.payload;
+          state.resultSign += action.payload;
+        } else {
+          if (state.a === "" && state.b === "") {
+            state.a += action.payload;
+            state.resultSign = action.payload;
+          } else {
+            alert("u can`t use more than one points 2");
+          }
+        }
       }
     },
     changeOperator: (state) => {
       if (state.operation) {
-        state.b = String(-Number(state.b));
-        state.resultSign = state.a + state.operation + state.b;
+        if (state.b !== ".") {
+          state.b = String(-Number(state.b));
+          state.resultSign = state.a + state.operation + state.b;
+        } else {
+          alert("please, add some digits first");
+        }
       } else {
-        state.a = String(-Number(state.a));
-        state.resultSign = state.a + state.operation + state.b;
+        if (state.a !== ".") {
+          state.a = String(-Number(state.a));
+          state.resultSign = state.a + state.operation + state.b;
+        } else {
+          alert("please, add some digits first");
+        }
       }
     },
     clearSign: (state) => {
@@ -136,7 +181,7 @@ export const signSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(addToHistory.pending, (state) => {
-      state.resultSign = 'CALCULATING...';
+      state.resultSign = "CALCULATING...";
     });
 
     builder.addCase(addToHistory.fulfilled, (state) => {

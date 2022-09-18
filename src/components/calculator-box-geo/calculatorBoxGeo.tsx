@@ -49,11 +49,15 @@ const CalculatorBoxGeo: React.FC<Buttons> = (props: Buttons) => {
       case ".":
         dispatch(checkDots(value));
         break;
-        case '+/-':
-          dispatch(changeOperator())
-          break;
+      case "+/-":
+        dispatch(changeOperator());
+        break;
       case "=":
-        props.sign ? dispatch(addToHistory(props.sign)) : console.log("wow");
+        props.sign
+          ? props.sign.operation === "/" && Number(props.sign.b) === 0
+            ? alert("No way!")
+            : dispatch(addToHistory(props.sign))
+          : console.log("wow");
         break;
       default:
         dispatch(addSign(value));
