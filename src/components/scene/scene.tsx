@@ -12,8 +12,8 @@ const Scene: React.FC = () => {
   const ref = useRef<THREE.Group>(null!);
   const signs = useSelector((state: RootState) => state.signs);
 
-  const [counterX, setCounterX] = useState(0);
-  const [counterY, setCounterY] = useState(0);
+  const [counterX, setCounterX] = useState<number>(0);
+  const [counterY, setCounterY] = useState<number>(0);
 
   window.addEventListener(
     "mousemove",
@@ -34,7 +34,7 @@ const Scene: React.FC = () => {
   });
 
   return (
-      <group ref={ref}>
+      <group ref={ref} >
         <CalculatorBaseModel />
         <CalculatorBoxGeo
           key={"display"}
