@@ -9,8 +9,13 @@
   - height: **5** blocks -->
 
 ## Description
-___
 
 ### LAZY ROTATION ADDED
 
 ![image info](./src/assets/readme-banner-gif-01.gif)
+
+## Instalation
+
+<code>
+  npm install
+</code>
