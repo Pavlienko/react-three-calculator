@@ -1,8 +1,8 @@
-# <center>React Three Calculator</center>
+# <div align="center">React Three Calculator</div>
 
 ![image info](./src/assets/logow.png)
 
-# <center>[Live Demo](https://pavlienko.com/projects/three-calculator)</center>
+# <div align="center">[Live Demo](https://pavlienko.com/projects/three-calculator)</div>
 
 <!-- - **Buttons count:**
   - width: **4** blocks
