@@ -16,7 +16,7 @@
 
 ## Instalation
 
-<code width="100vw">
+```
   npm install
   npm start
-</code>
+```
