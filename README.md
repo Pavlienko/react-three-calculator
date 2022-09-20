@@ -18,4 +18,5 @@
 
 <code>
   npm install
+  npm start
 </code>
