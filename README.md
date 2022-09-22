@@ -14,9 +14,21 @@
 
 ![image info](./src/assets/readme-banner-gif-01.gif)
 
-## Instalation
+Calculator implemented by scratch on React.js.
+It contains all types of operations (which exists on original Ricomac RC-8F),and one edited button. I've learned web development myself without any course or coaching so don't expect too much from the source code xD.
+
+## About project
+
+## Project setup
 
 ```
   npm install
   npm start
 ```
+## Future scope
+
+  - Add enemies from doom
+  - Easter eggs
+  - Make editable background fragment shader and add it to the main screen
+
+<!-- ## Support on  -->
