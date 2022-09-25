@@ -8,6 +8,7 @@ type SignType = {
   operation?: string;
   result?: number;
   resultSign: string;
+  store: [string, string, string, number | undefined];
 };
 
 const DotsCheck = (value: string) => {
@@ -93,6 +94,7 @@ const initialState: SignType = {
   operation: "",
   result: undefined,
   resultSign: "3D CALCULATOR",
+  store: ["", "", "", undefined],
 };
 
 export const signSlice = createSlice({
@@ -100,16 +102,24 @@ export const signSlice = createSlice({
   initialState,
   reducers: {
     addSign: (state, action: PayloadAction<string>) => {
-      if (state.resultSign === initialState.resultSign) state.resultSign = "";
+      if (state.resultSign === initialState.resultSign) {
+        state.resultSign = "";
+        console.log(1);
+      }
       if (state.operation) {
+        console.log(2);
+        
         state.b += action.payload;
         state.resultSign += action.payload;
       } else {
+        console.log(3);
+        
         if (state.result) {
           state.result = undefined;
           state.a = action.payload;
           state.resultSign = action.payload;
         } else {
+          state.result = undefined;
           state.a += action.payload;
           state.resultSign += action.payload;
         }
@@ -177,6 +187,58 @@ export const signSlice = createSlice({
       state.operation = "";
       state.result = undefined;
       state.resultSign = initialState.resultSign;
+      state.store = initialState.store;
+    },
+    storeSign: (state) => {
+      if (
+        (state.store[0] || state.store[1] || state.store[2]) !== "" ||
+        state.store[3] !== undefined
+      ) {
+        console.log(0);
+
+        if (
+          state.store[0] +
+          state.store[2] +
+            state.store[1] +
+            (state.store[3] === undefined ? "" : String(state.store[3])) ===
+          state.resultSign
+        ) {
+          console.log("equal");
+
+          state.store = initialState.store;
+        } else {
+          state.resultSign =
+            state.store[0] +
+            state.store[2] +
+            state.store[1] +
+            (state.store[3] === undefined ? "" : String(state.store[3]));
+          state.a = state.store[0];
+          state.b = state.store[1];
+          state.operation = state.store[2];
+          state.result = state.store[3];
+        }
+      } else {
+        console.log(1);
+
+        state.store = [
+          state.a ? state.a : "",
+          state.b ? state.b : "",
+          state.operation ? state.operation : "",
+          state.result ? state.result : undefined,
+        ];
+        console.log(state.store);
+      }
+    },
+    replaceStoreSign: (state) => {
+      state.store = ["", "", "", undefined];
+      state.store = [
+        state.a ? state.a : "",
+        state.b ? state.b : "",
+        state.operation ? state.operation : "",
+        undefined
+        // state.a && state.b && state.result ? state.result : undefined,
+      ];
+      console.log(state.store);
     },
   },
   extraReducers: (builder) => {
@@ -190,7 +252,7 @@ export const signSlice = createSlice({
           IntCheck(Number(Calculate(state.a, state.b, state.operation)))
         );
         state.resultSign = String(state.result);
-        state.a = String(state.result);
+        state.a = state.resultSign;
         state.b = "";
         state.operation = "";
       } else {
@@ -210,6 +272,8 @@ export const {
   checkDots,
   changeOperator,
   clearSign,
+  storeSign,
+  replaceStoreSign,
 } = signSlice.actions;
 
 export type { SignType };

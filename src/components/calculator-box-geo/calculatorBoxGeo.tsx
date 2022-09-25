@@ -13,6 +13,8 @@ import {
   changeOperator,
   addToHistory,
   SignType,
+  storeSign,
+  replaceStoreSign
 } from "../../features/signSlice";
 
 import { AppDispatch } from "../../store/store";
@@ -40,6 +42,16 @@ const CalculatorBoxGeo: React.FC<Buttons> = (props: Buttons) => {
       case "AC":
         dispatch(clearSign());
         break;
+      case "^_^":
+        window.open("https://www.pavlienko.com");
+        break;
+      case "MRC":
+        dispatch(storeSign());
+        break;
+      case "M+":
+        dispatch(replaceStoreSign())
+        break;
+      case "%":
       case "-":
       case "+":
       case "*":

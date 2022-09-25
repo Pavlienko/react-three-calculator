@@ -1,6 +1,3 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../store/store";
-
 type Colors = {
   shadow: string;
   defaultButton: string;
@@ -18,8 +15,6 @@ export const colors: Colors = {
   equalButton: "orangered",
   display: "lightgreen",
 };
-
-// const signs = useSelector((state: RootState) => state.signs);
 
 export const buttons = [
   {

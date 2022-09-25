@@ -27,10 +27,10 @@ const Background: React.FC = (props: JSX.IntrinsicElements["mesh"]) => {
   useFrame((state) => {
     const { clock } = state;
     refMat.current.uniforms.time.value = clock.getElapsedTime();
-    refMat.current.uniforms.resolution.value = new THREE.Vector2(
-      window.innerWidth * window.devicePixelRatio,
-      window.innerHeight * window.devicePixelRatio
-    );
+    // refMat.current.uniforms.resolution.value = new THREE.Vector2(
+    //   window.innerWidth * window.devicePixelRatio,
+    //   window.innerHeight * window.devicePixelRatio
+    // );
   });
 
   const vertexShader = `
