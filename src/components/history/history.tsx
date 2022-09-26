@@ -29,8 +29,28 @@ const History: React.FC = () => {
     <div className="calc-history">
       <div style={{ marginTop: "30px" }}>Operations history:</div>
       <div style={{ width: "fit-content", margin: "30px auto" }}>
-        {history.map((e: string,i) => {
-          return <div key={i} style={{ textAlign: "left" }}>{e}</div>;
+        <div
+          style={{
+            width: "100%",
+            height: "1px",
+            background: "gray",
+            margin: "10px 0px 10px 0px",
+          }}
+        ></div>
+        {history.map((e: string, i) => {
+          return (
+            <div key={i} style={{ textAlign: "left" }}>
+              {e}
+              <div
+                style={{
+                  width: "100%",
+                  height: "1px",
+                  background: "gray",
+                  margin: "10px 0px 10px 0px",
+                }}
+              ></div>
+            </div>
+          );
         })}
       </div>
     </div>

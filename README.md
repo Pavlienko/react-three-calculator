@@ -63,7 +63,7 @@ M+  --- clears the store, and replace empty store with existing signs
   npm start
 ```
 ## Future scope
-
+  - Add loader ...
   - Add enemies from doom
   - Easter eggs
   - Make editable background fragment shader and add it to the main screen

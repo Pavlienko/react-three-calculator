@@ -21,3 +21,17 @@
     z-index: 2 ;
     /* backdrop-filter: blur(1px); */
 }
+
+@media screen and (max-width: 500px) {
+    
+    .calc-history{
+        box-sizing: border-box;
+        /* padding: 0; */
+        top: 80vh;
+        left: 50vw;
+        transform: translate(-50%,0);
+        width: 80vw;
+        height: 15vh;
+        border-radius: 1rem;
+    }
+  }
