@@ -1,8 +1,8 @@
 # <div align="center">React Three Calculator</div>
 
-<div align="center">
+<div align="center"/>
 <img width="400" alt="main-logo" src="./src/assets/logow.png" />
-<div/>
+</div>
 
 # <div align="center">[Live Demo](https://pavlienko.com/projects/three-calculator)</div>
 
