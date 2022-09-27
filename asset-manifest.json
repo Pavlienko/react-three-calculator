@@ -1,23 +1,25 @@
 {
   "files": {
     "main.css": "/react-three-calculator/static/css/main.1f58bd45.css",
-    "main.js": "/react-three-calculator/static/js/main.df3f9bf0.js",
+    "main.js": "/react-three-calculator/static/js/main.e80675c2.js",
+    "static/media/calc-base-1.gltf": "/react-three-calculator/static/media/calc-base-1.bf1c76e048b1e151cbc8.gltf",
     "static/media/music.mp3": "/react-three-calculator/static/media/music.9fd543cb4337b361340c.mp3",
     "static/media/logow.png": "/react-three-calculator/static/media/logow.176231699da5c9f87a0c.png",
     "static/media/gif.webp": "/react-three-calculator/static/media/gif.646b54a692a05225acb4.webp",
     "static/media/eot": "/react-three-calculator/static/media/58045dabdc3a361cb9bb9faf2f1dd1f3.21bc7f834b46fa8b2666.eot",
     "static/media/ttf": "/react-three-calculator/static/media/58045dabdc3a361cb9bb9faf2f1dd1f3.ae951a188b593952b384.ttf",
     "static/media/svg": "/react-three-calculator/static/media/58045dabdc3a361cb9bb9faf2f1dd1f3.6cb4e7f85c49b11ea8b9.svg",
+    "static/media/calc-button.gltf": "/react-three-calculator/static/media/calc-button.70e22b4bf61c765bfc3a.gltf",
     "static/media/woff": "/react-three-calculator/static/media/58045dabdc3a361cb9bb9faf2f1dd1f3.7a1de2b5a164b95867fb.woff",
     "static/media/woff2": "/react-three-calculator/static/media/58045dabdc3a361cb9bb9faf2f1dd1f3.84b1f4b1242c6bb5723b.woff2",
     "static/media/audiooff.svg": "/react-three-calculator/static/media/audiooff.721753f50d31e20e2216e56878d6ff41.svg",
     "static/media/audioon.svg": "/react-three-calculator/static/media/audioon.d1d88f492d1c68883a9b0e05e957d7b6.svg",
     "index.html": "/react-three-calculator/index.html",
     "main.1f58bd45.css.map": "/react-three-calculator/static/css/main.1f58bd45.css.map",
-    "main.df3f9bf0.js.map": "/react-three-calculator/static/js/main.df3f9bf0.js.map"
+    "main.e80675c2.js.map": "/react-three-calculator/static/js/main.e80675c2.js.map"
   },
   "entrypoints": [
     "static/css/main.1f58bd45.css",
-    "static/js/main.df3f9bf0.js"
+    "static/js/main.e80675c2.js"
   ]
 }
