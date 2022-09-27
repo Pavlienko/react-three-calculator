@@ -4,7 +4,7 @@
 <img width="400" alt="main-logo" src="./src/assets/logow.png" />
 </div>
 
-# <div align="center">[Live Demo](https://pavlienko.com/projects/three-calculator)</div>
+# <div align="center">[Live Demo](https://pavlienko.github.io/react-three-calculator)</div>
 
 <!-- - **Buttons count:**
   - width: **4** blocks
