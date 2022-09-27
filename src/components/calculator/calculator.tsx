@@ -3,14 +3,14 @@ import { Canvas } from "@react-three/fiber";
 import {
   PresentationControls,
   Environment,
-  Shadow,
+  // Shadow,
   useContextBridge,
 } from "@react-three/drei";
 import { ReactReduxContext } from "react-redux";
 
 import "./calculator.css";
 
-import { colors } from "../../store/parameters";
+// import { colors } from "../../store/parameters";
 import Scene from "../scene";
 import Background from "../background";
 import Infographics from "../infographics"
@@ -33,8 +33,8 @@ const Calculator: React.FC = () => {
             >
               <ambientLight intensity={0.5} color={"#9af"} />
               <spotLight
-                // color={"#fda"}
-                color={"#90f"}
+                color={"#fda"}
+                // color={"#90f"}
                 intensity={2}
                 position={[10, 10, 10]}
                 angle={0.25}
@@ -52,14 +52,14 @@ const Calculator: React.FC = () => {
                 castShadow
               />
               <Environment preset="city" />
-              <Shadow
+              {/* <Shadow
                 scale={7}
                 position-y={-3.7}
                 color={colors.shadow}
                 colorStop={0}
                 opacity={0.3}
                 fog={false}
-              />
+              /> */}
               <Scene />
             </PresentationControls>
           </Suspense>

@@ -1,8 +1,3 @@
-/* @font-face {
-  font-family: digital-7;
-  src: url(./assets/digital-font/digital-7.ttf);
-} */
-
 @font-face {
   font-family: "Digital-7";
   src: url("./assets/digital-font/58045dabdc3a361cb9bb9faf2f1dd1f3.eot");
@@ -39,8 +34,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
   height: 100vh;
-  /* background: radial-gradient(rgb(41, 41, 41),black); */
-  background: radial-gradient(rgb(62, 0, 54), black);
+  background: radial-gradient(rgb(1, 12, 0) ,black 70%);
+  /* background: radial-gradient(rgb(62, 0, 54), black); */
   background-size: cover;
   color: white;
   text-align: center;

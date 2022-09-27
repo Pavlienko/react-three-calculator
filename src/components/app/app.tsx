@@ -4,7 +4,7 @@ import Music from "../music";
 
 import "../app/app.css";
 
-import calcLogo from "../../assets/logow.png";
+import calcLogo from "../../assets/logoq.png";
 
 
 const App: React.FC = () => {

@@ -8,7 +8,7 @@ type Colors = {
 };
 
 export const colors: Colors = {
-  shadow: "#404040",
+  shadow: "#101010",
   defaultButton: "darkgrey",
   extendButton: "red",
   operationButton: "#333",
