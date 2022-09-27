@@ -33,7 +33,6 @@ const Scene: React.FC = () => {
         (counterX / window.innerWidth - 0.5 - ref.current.rotation.y) * 0.1;
       const z =
         (-(counterY / window.innerHeight - 0.5) - ref.current.rotation.z) * 0.1;
-      console.log(y);
 
       if ((y < -0.001 || y > 0.001) || (z < -0.001 || z > 0.001)) {
         ref.current.rotation.y += y;

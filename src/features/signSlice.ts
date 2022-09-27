@@ -35,21 +35,21 @@ const Calculate = (a?: string, b?: string, operation?: string) => {
       if (a && b) {
         return IntCheck(Number(a) + Number(b));
       } else {
-        console.log("not enough inputs");
+        alert("not enough inputs");
       }
       break;
     case "-":
       if (a && b) {
         return IntCheck(Number(a) - Number(b));
       } else {
-        console.log("not enough inputs");
+        alert("not enough inputs");
       }
       break;
     case "*":
       if (a && b) {
         return IntCheck(Number(a) * Number(b));
       } else {
-        console.log("not enough inputs");
+        alert("not enough inputs");
       }
       break;
     case "/":
@@ -60,7 +60,7 @@ const Calculate = (a?: string, b?: string, operation?: string) => {
           alert("no no no");
         }
       } else {
-        console.log("not enough inputs");
+        alert("not enough inputs");
       }
       break;
   }
@@ -104,16 +104,11 @@ export const signSlice = createSlice({
     addSign: (state, action: PayloadAction<string>) => {
       if (state.resultSign === initialState.resultSign) {
         state.resultSign = "";
-        console.log(1);
       }
       if (state.operation) {
-        console.log(2);
-        
         state.b += action.payload;
         state.resultSign += action.payload;
       } else {
-        console.log(3);
-        
         if (state.result) {
           state.result = undefined;
           state.a = action.payload;
@@ -194,8 +189,6 @@ export const signSlice = createSlice({
         (state.store[0] || state.store[1] || state.store[2]) !== "" ||
         state.store[3] !== undefined
       ) {
-        console.log(0);
-
         if (
           state.store[0] +
           state.store[2] +
@@ -203,8 +196,6 @@ export const signSlice = createSlice({
             (state.store[3] === undefined ? "" : String(state.store[3])) ===
           state.resultSign
         ) {
-          console.log("equal");
-
           state.store = initialState.store;
         } else {
           state.resultSign =
@@ -218,15 +209,12 @@ export const signSlice = createSlice({
           state.result = state.store[3];
         }
       } else {
-        console.log(1);
-
         state.store = [
           state.a ? state.a : "",
           state.b ? state.b : "",
           state.operation ? state.operation : "",
           state.result ? state.result : undefined,
         ];
-        console.log(state.store);
       }
     },
     replaceStoreSign: (state) => {
@@ -238,7 +226,6 @@ export const signSlice = createSlice({
         undefined
         // state.a && state.b && state.result ? state.result : undefined,
       ];
-      console.log(state.store);
     },
   },
   extraReducers: (builder) => {

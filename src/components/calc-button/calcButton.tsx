@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import {MeshProps} from "@react-three/fiber";
+import ButtonModel from "../../assets/calc-button.gltf";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -20,7 +21,8 @@ type ButtonProps = {
 export default function CalcButton(props: ButtonProps) {
   const group = useRef<THREE.Group>(null!);
   const { nodes, materials } = useGLTF(
-    "/calc-button.gltf"
+    // "/calc-button.gltf"
+    ButtonModel
   ) as unknown as GLTFResult;
   return (
     <group ref={group} {...props} dispose={null}>
@@ -35,4 +37,5 @@ export default function CalcButton(props: ButtonProps) {
     </group>
   );
 }
-useGLTF.preload("/calc-button.gltf");
+// useGLTF.preload("/calc-button.gltf");
+useGLTF.preload(ButtonModel);

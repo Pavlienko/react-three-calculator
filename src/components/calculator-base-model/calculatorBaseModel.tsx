@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
+import BaseModel from "../../assets/calc-base-1.gltf";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -27,7 +28,8 @@ export default function CalculatorBaseModel(
 ) {
   const group = useRef<THREE.Group>(null!);
   const { nodes, materials } = useGLTF(
-    "/calc-base-1.gltf"
+    // "/calc-base-1.gltf"
+    BaseModel
   ) as unknown as GLTFResult;
 
   return (
@@ -42,8 +44,6 @@ export default function CalculatorBaseModel(
           userData={{ name: "calculator-base" }}
           rotation={[Math.PI / 2, 0, 0]}
         />
-          {/* <meshStandardMaterial color={"#C9B27F"} />
-        </mesh> */}
       <mesh geometry={nodes['calculator-base002'].geometry} material={materials.buttonsBaseMaterial} rotation={[Math.PI / 2, 0, 0]}/>
       <mesh geometry={nodes['calculator-base003'].geometry} material={materials.displayMaterial} rotation={[Math.PI / 2, 0, 0]}/>
       <mesh geometry={nodes['calculator-base004'].geometry} material={materials.signMaterial} rotation={[Math.PI / 2, 0, 0]}/>
@@ -53,4 +53,5 @@ export default function CalculatorBaseModel(
     </group>
   );
 }
-useGLTF.preload("/calc-base-1.gltf");
+// useGLTF.preload("/calc-base-1.gltf");
+useGLTF.preload(BaseModel);
