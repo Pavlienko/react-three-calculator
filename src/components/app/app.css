@@ -17,8 +17,13 @@
     object-fit: contain;
 }
 
+@media screen and (max-width: 1250px) {
+    .calc-logo{
+        width: 35vw;
+    }
+  }
+
 @media screen and (max-width: 500px) {
-    
     .calc-logo{
         width: 80vw;
     }

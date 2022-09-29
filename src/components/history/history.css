@@ -22,7 +22,7 @@
     /* backdrop-filter: blur(1px); */
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 1250px) {
     
     .calc-history{
         box-sizing: border-box;

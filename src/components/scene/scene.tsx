@@ -1,73 +1,69 @@
-import { useState, useRef, useEffect } from "react";
-import { useFrame } from "@react-three/fiber";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
+import { Suspense } from "react";
+import { Canvas } from "@react-three/fiber";
+import {
+  PresentationControls,
+  Environment,
+  // Shadow,
+  useContextBridge,
+} from "@react-three/drei";
+import { ReactReduxContext } from "react-redux";
 
-import CalculatorBaseModel from "../calculator-base-model";
-import CalculatorBoxGeo from "../calculator-box-geo";
+import "./scene.css";
 
-import { colors, buttons } from "../../store/parameters";
+// import { colors } from "../../store/parameters";
+import Calculator from "../calculator";
+import Background from "../background";
 
 const Scene: React.FC = () => {
-  const ref = useRef<THREE.Group>(null!);
-  const signs = useSelector((state: RootState) => state.signs);
-
-  const [counterX, setCounterX] = useState<number>(window.innerWidth / 2);
-  const [counterY, setCounterY] = useState<number>(window.innerHeight / 2);
-
-  useEffect(() => {
-    const setFromEvent = (e: any) => {
-      setCounterX(e.clientX);
-      setCounterY(e.clientY);
-    };
-    window.addEventListener("mousemove", setFromEvent);
-
-    return () => {
-      window.removeEventListener("mousemove", setFromEvent);
-    };
-  }, []);
-
-  useFrame(() => {
-    if (ref.current) {
-      const y =
-        (counterX / window.innerWidth - 0.5 - ref.current.rotation.y) * 0.1;
-      const z =
-        (-(counterY / window.innerHeight - 0.5) - ref.current.rotation.z) * 0.1;
-
-      if ((y < -0.001 || y > 0.001) || (z < -0.001 || z > 0.001)) {
-        ref.current.rotation.y += y;
-        ref.current.rotation.z += z;
-      }
-    }
-  });
+  const ContextBridge = useContextBridge(ReactReduxContext);
 
   return (
-    <group ref={ref}>
-      <CalculatorBaseModel />
-      <CalculatorBoxGeo
-        key={"display"}
-        text={signs.resultSign}
-        position={[1.05, 1.2, 0]}
-        color={colors.display}
-      />
-      {buttons.map((e, i) => {
-        return (
-          <CalculatorBoxGeo
-            key={i}
-            text={e.text}
-            position={[e.position[0], e.position[1], e.position[2]]}
-            color={e.color ? e.color : undefined}
-          />
-        );
-      })}
-      <CalculatorBoxGeo
-        key={"count"}
-        sign={signs}
-        text={"="}
-        position={[1.07, -2.55, -1.43]}
-        color={colors.equalButton}
-      />
-    </group>
+    <div className="canvas-scene">
+      <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 0, 8], fov: 90 }}>
+        <ContextBridge>
+          <Suspense fallback={null}>
+            <PresentationControls
+              global
+              config={{ mass: 1, tension: 500 }}
+              snap={true}
+              rotation={[0, -Math.PI / 2, 0]}
+              polar={[-Math.PI / 3, Math.PI / 3]}
+              azimuth={[-Math.PI / 1.4, Math.PI / 2]}
+            >
+              <ambientLight intensity={0.5} color={"#9af"} />
+              <spotLight
+                color={"#fda"}
+                intensity={2}
+                position={[10, 10, 10]}
+                angle={0.25}
+                penumbra={1}
+                shadow-mapSize={[512, 512]}
+                castShadow
+              />
+              <spotLight
+                color={"#fda"}
+                position={[10, 10, 10]}
+                angle={0.25}
+                penumbra={1}
+                shadow-mapSize={[512, 512]}
+                castShadow
+              />
+              <Environment preset="city" />
+              {/* <Shadow
+                scale={7}
+                position-y={-3.7}
+                color={colors.shadow}
+                colorStop={0}
+                opacity={0.3}
+                fog={false}
+              /> */}
+              <Calculator />
+            </PresentationControls>
+          </Suspense>
+        </ContextBridge>
+        <Background />
+      </Canvas>
+    </div>
   );
 };
 

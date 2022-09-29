@@ -1,4 +1,4 @@
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 // import glsl from 'babel-plugin-glsl/macro';
@@ -6,6 +6,25 @@ import * as THREE from "three";
 const Background: React.FC = (props: JSX.IntrinsicElements["mesh"]) => {
   const refMesh = useRef<THREE.Mesh>(null!);
   const refMat = useRef<THREE.ShaderMaterial>(null!);
+
+  // const resVector = new THREE.Vector2(
+  //   window.innerWidth * window.devicePixelRatio,
+  //   window.innerHeight * window.devicePixelRatio
+  // ),
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      refMat.current.uniforms.resolution.value = new THREE.Vector2(
+        window.innerWidth * window.devicePixelRatio,
+        window.innerHeight * window.devicePixelRatio
+      );
+    });
+    window.removeEventListener('resize',()=>{
+
+    })
+
+  }, [])
+  
 
   const uniforms = useMemo(
     () => ({
@@ -27,10 +46,6 @@ const Background: React.FC = (props: JSX.IntrinsicElements["mesh"]) => {
   useFrame((state) => {
     const { clock } = state;
     refMat.current.uniforms.time.value = clock.getElapsedTime();
-    // refMat.current.uniforms.resolution.value = new THREE.Vector2(
-    //   window.innerWidth * window.devicePixelRatio,
-    //   window.innerHeight * window.devicePixelRatio
-    // );
   });
 
   const vertexShader = `
@@ -65,9 +80,8 @@ void main( void )
     vec4 grid = vec4(0.0,(c1),0.0,c1);
     gl_FragColor = grid;
 	  // gl_FragColor = mix(grid,vec4(0.0),abs(z -1.));
-
 }
-    `;
+`;
 
   return (
     <>

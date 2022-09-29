@@ -1,6 +1,7 @@
-import Calculator from "../calculator";
+import Scene from "../scene";
 import History from "../history";
 import Music from "../music";
+import Infographics from "../infographics";
 
 import "../app/app.css";
 
@@ -16,7 +17,8 @@ const App: React.FC = () => {
       </div>
       <Music />
       <History />
-      <Calculator />
+      <Scene />
+      <Infographics />
     </div>
   );
 };
