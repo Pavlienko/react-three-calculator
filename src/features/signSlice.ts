@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
-const API_URL = "http://62.113.105.69:3000/threecalchistory";
+const API_URL = "https://pavlienko.ru/node/threecalchistory";
 
 type SignType = {
   a?: string;
@@ -68,7 +68,7 @@ const Calculate = (a?: string, b?: string, operation?: string) => {
 };
 
 export const addToHistory = createAsyncThunk(
-  "calc/history",
+  "calchistory",
   async (state: SignType) => {
     try {
       await axios.post(API_URL, {
