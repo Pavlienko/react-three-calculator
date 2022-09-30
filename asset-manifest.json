@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-three-calculator/static/css/main.58001ac4.css",
-    "main.js": "/react-three-calculator/static/js/main.d34d6bce.js",
+    "main.js": "/react-three-calculator/static/js/main.39c0f3f3.js",
     "static/media/calc-base-1.gltf": "/react-three-calculator/static/media/calc-base-1.bf1c76e048b1e151cbc8.gltf",
     "static/media/music.mp3": "/react-three-calculator/static/media/music.9fd543cb4337b361340c.mp3",
     "static/media/logoq.png": "/react-three-calculator/static/media/logoq.b109bc58e24cb835c9d5.png",
@@ -16,10 +16,10 @@
     "static/media/audioon.svg": "/react-three-calculator/static/media/audioon.d1d88f492d1c68883a9b0e05e957d7b6.svg",
     "index.html": "/react-three-calculator/index.html",
     "main.58001ac4.css.map": "/react-three-calculator/static/css/main.58001ac4.css.map",
-    "main.d34d6bce.js.map": "/react-three-calculator/static/js/main.d34d6bce.js.map"
+    "main.39c0f3f3.js.map": "/react-three-calculator/static/js/main.39c0f3f3.js.map"
   },
   "entrypoints": [
     "static/css/main.58001ac4.css",
-    "static/js/main.d34d6bce.js"
+    "static/js/main.39c0f3f3.js"
   ]
 }
