@@ -14,7 +14,11 @@
 
 ### LAZY ROTATION ADDED
 
+<center>
+
 ![image info](./src/assets/readme-banner-gif-01.gif)
+
+</center>
 
 Calculator implemented by scratch on React.js.
 It contains all types of operations (which exists on original Ricomac RC-8F),and one edited button. I've learned web development myself without any course or coaching so don't expect too much from the source code xD.
