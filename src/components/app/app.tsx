@@ -5,7 +5,7 @@ import Infographics from "../infographics";
 
 import "../app/app.css";
 
-import calcLogo from "../../assets/logoq.png";
+import calcLogo from "../../assets/logo.png";
 
 
 const App: React.FC = () => {

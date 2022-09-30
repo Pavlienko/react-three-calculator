@@ -22,12 +22,33 @@ const DotsCheck = (value: string) => {
 };
 
 const IntCheck = (value: number) => {
-  if (value % 1 === 0) {
-    return value;
+  if (value.toString().includes(".")) {
+    const test = value.toString().split(".").pop();
+    if (test !== undefined && test.length <= 11) {
+      return value;
+    } else {
+      return value.toFixed(11);
+    }
   } else {
-    return value.toFixed(11);
+    return value;
   }
+
+  // if (value.toString().includes(".")) {
+  //   const a = value.toString().split(".").pop();
+  //   console.log(a.length);
+  //   return (a.length)
+  // } else {
+  //   return 0;
+  // }
 };
+
+// const IntCheck = (value: number) => {
+//   if (value % 1 === 0) {
+//     return value;
+//   } else {
+//     return value.toFixed(11);
+//   }
+// };
 
 const Calculate = (a?: string, b?: string, operation?: string) => {
   switch (operation) {
@@ -191,7 +212,7 @@ export const signSlice = createSlice({
       ) {
         if (
           state.store[0] +
-          state.store[2] +
+            state.store[2] +
             state.store[1] +
             (state.store[3] === undefined ? "" : String(state.store[3])) ===
           state.resultSign
@@ -223,7 +244,7 @@ export const signSlice = createSlice({
         state.a ? state.a : "",
         state.b ? state.b : "",
         state.operation ? state.operation : "",
-        undefined
+        undefined,
         // state.a && state.b && state.result ? state.result : undefined,
       ];
     },

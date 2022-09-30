@@ -1,7 +1,7 @@
 # <div align="center">React Three Calculator</div>
 
 <div align="center"/>
-<img width="400" alt="main-logo" src="./src/assets/logow.png" />
+<img width="400" alt="main-logo" src="./src/assets/logo.png" />
 </div>
 
 # <div align="center">[Live Demo](https://pavlienko.github.io/react-three-calculator)</div>
