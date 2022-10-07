@@ -64,7 +64,7 @@ M+  --- clears the store, and replace empty store with existing signs
 
 ## Project setup
 
-```
+```js
   npm install
   npm start
 ```
