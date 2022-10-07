@@ -23,9 +23,8 @@ This project was developed to demonstrate the simple idea of ​​a retro 3d ca
 <br />
 
 <div align="center"/>
-<img width="640" alt="main-gif" src="./src/assets/ricomac-photo.jpeg" />
+<img width="350" alt="image-info" src="./src/assets/ricomac-photo.jpeg" />
 </div>
-![image info](./src/assets/ricomac-photo.jpeg)
 
 - ### History:
 
